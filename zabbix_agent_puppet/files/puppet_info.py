@@ -1,11 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import yaml
 import argparse
 
 def get_puppet_data():
     with open("/var/lib/puppet/state/last_run_summary.yaml", 'r') as stream:
-        return yaml.load(stream)
+        return yaml.load(stream, Loader=yaml.FullLoader)
 
 
 if __name__ == '__main__':
@@ -15,6 +15,6 @@ if __name__ == '__main__':
     arguments = parser.parse_args()
 
     if arguments.lastrun:
-         print get_puppet_data()["time"]["last_run"]
+         print(get_puppet_data()["time"]["last_run"])
     else:
-         print get_puppet_data()
+         print(get_puppet_data())
