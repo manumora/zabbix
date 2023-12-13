@@ -24,6 +24,7 @@
 ##############################################################################
 
 import psutil
+import json
 
 if __name__ == '__main__':
     temperatures = dict()
@@ -38,4 +39,5 @@ if __name__ == '__main__':
 
             temperatures["%s - %s" % (_type, name)] = item[1]
 
-    print(temperatures)
+    print(json.dumps(temperatures))
+
