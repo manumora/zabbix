@@ -2,8 +2,8 @@
 ##############################################################################
 # -*- coding: utf-8 -*-
 # Project:     Zabbix modules
-# Module:      puppet_info.py
-# Purpose:     Get puppet info of computers
+# Module:      temperatures.py
+# Purpose:     Get temperatures of computers
 # Language:    Python 3
 # Date:        13-Dec-2023.
 # Ver:         13-Dec-2023.
@@ -23,21 +23,19 @@
 #
 ##############################################################################
 
-import yaml
-import argparse
-
-def get_puppet_data():
-    with open("/var/lib/puppet/state/last_run_summary.yaml", 'r') as stream:
-        return yaml.load(stream, Loader=yaml.FullLoader)
-
+import psutil
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--lastrun', default=None, action='store_true')
+    temperatures = dict()
+    for _type, items in psutil.sensors_temperatures().items():
+        aux_label = 0
+        for item in items:
+            if not item[0]:
+                name = aux_label
+                aux_label += 1
+            else:
+                name = item[0]
 
-    arguments = parser.parse_args()
+            temperatures["%s - %s" % (_type, name)] = item[1]
 
-    if arguments.lastrun:
-         print(get_puppet_data()["time"]["last_run"])
-    else:
-         print(get_puppet_data())
+    print(temperatures)

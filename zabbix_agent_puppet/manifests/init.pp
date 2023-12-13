@@ -24,12 +24,12 @@ class install_zabbix_agent {
     package{"zabbix-agent":
         ensure => "installed"
     }
-    
+
     ### Zabbix Agent configuration ###
-    setConfiguration{
+    setConfigurationZabbix{
         "set-zabbix-server": line => "Server=zabbix"
     }
-    setConfiguration{
+    setConfigurationZabbix{
         "set-zabbix-hostname": line => "Hostname=${hostname}"
     }
     file {"/etc/zabbix/run":
@@ -48,9 +48,15 @@ class install_zabbix_agent {
     }
 
     ### Monitor puppet ###
-    package{
-        "python-yaml": ensure => "installed"
-    }
+     exec {"python-yaml":
+        command => "/usr/bin/apt install -y python-yaml",
+        unless => "/usr/bin/facter sistema | /bin/grep -q 'ubuntu2204'"
+     }
+     exec {"python3-yaml":
+        command => "/usr/bin/apt install -y python3-yaml",
+        onlyif => "/usr/bin/facter sistema | /bin/grep -q 'ubuntu2204'",
+        unless => "/usr/bin/dpkg -l | /bin/grep -q 'python3-yaml'"
+     }
     file { '/var/lib/puppet':
         ensure => 'directory',
         mode   => '0755',
@@ -62,7 +68,7 @@ class install_zabbix_agent {
     file {"/etc/zabbix/run/puppet_info.py":
         source => "puppet:///modules/install_zabbix_agent/puppet_info.py",
         owner => root, group => root, mode => 755,
-       require => File["/etc/zabbix/run"]
+        require => File["/etc/zabbix/run"]
     }
 
     ### Monitor logged user ###
@@ -70,10 +76,25 @@ class install_zabbix_agent {
         source => "puppet:///modules/install_zabbix_agent/user_logged.conf",
         owner => root, group => root, mode => 644
     }
+
+    ### Monitor temperatures ###
+    exec {"python3-psutil":
+        command => "/usr/bin/apt install -y python-yaml",
+        unless => "/usr/bin/facter sistema | /bin/grep -q 'ubuntu2204'"
+    }
+    file {"/etc/zabbix/zabbix_agentd.conf.d/temperatures.conf":
+        source => "puppet:///modules/install_zabbix_agent/temperatures.conf",
+        owner => root, group => root, mode => 644
+    }
+    file {"/etc/zabbix/run/temperatures.py":
+        source => "puppet:///modules/install_zabbix_agent/temperatures.py",
+        owner => root, group => root, mode => 755,
+        require => File["/etc/zabbix/run"]
+    }
 }
 
 # Functions
-define setConfiguration($line) {
+define setConfigurationZabbix($line) {
     $file = "/etc/zabbix/zabbix_agentd.conf"
     $defvar = split($line, '=')
     $var = $defvar[0]
