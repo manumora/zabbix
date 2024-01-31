@@ -25,7 +25,7 @@ services:
     depends_on:
       - postgres-server
     networks:
-      zabbix-network
+      - zabbix-network
 
   zabbix-web:
     image: zabbix/zabbix-web-nginx-pgsql:ubuntu-6.4-latest
@@ -47,7 +47,7 @@ services:
       - postgres-server
       - zabbix-server
     networks:
-      zabbix-network
+      - zabbix-network
 
   postgres-server:
     image: postgres:15-alpine
@@ -60,7 +60,7 @@ services:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
     networks:
-      zabbix-network
+      - zabbix-network
 
 networks:
   zabbix-network:
