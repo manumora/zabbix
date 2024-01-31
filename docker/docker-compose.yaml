@@ -1,0 +1,73 @@
+version: '3.5'
+
+services:
+  zabbix-server:
+    image: zabbix/zabbix-server-pgsql:ubuntu-6.4-latest
+    container_name: zabbix-server
+    ports:
+      - "10051:10051"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/zabbix/alertscripts:/usr/lib/zabbix/alertscripts:ro
+      - /docker/zabbix/externalscripts:/usr/lib/zabbix/externalscripts:ro
+      - /docker/zabbix/dbscripts:/var/lib/zabbix/dbscripts:ro
+      - /docker/zabbix/export:/var/lib/zabbix/export:rw
+      - /docker/zabbix/modules:/var/lib/zabbix/modules:ro
+      - /docker/zabbix/enc:/var/lib/zabbix/enc:ro
+      - /docker/zabbix/ssh_keys:/var/lib/zabbix/ssh_keys:ro
+      - /docker/zabbix/mibs:/var/lib/zabbix/mibs:ro
+    env_file:
+      - /docker/zabbix/env_vars/.env_db_pgsql
+      - /docker/zabbix/env_vars/.env_srv
+    secrets:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+    depends_on:
+      - postgres-server
+    networks:
+      zabbix-network
+
+  zabbix-web:
+    image: zabbix/zabbix-web-nginx-pgsql:ubuntu-6.4-latest
+    container_name: zabbix-web
+    ports:
+      - "80:8080"
+      - "443:8443"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/zabbix/nginx:/etc/ssl/nginx:ro
+      - /docker/zabbix/modules/:/usr/share/zabbix/modules/:ro
+    env_file:
+      - /docker/zabbix/env_vars/.env_db_pgsql
+      - /docker/zabbix/env_vars/.env_web
+    secrets:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+    depends_on:
+      - postgres-server
+      - zabbix-server
+    networks:
+      zabbix-network
+
+  postgres-server:
+    image: postgres:15-alpine
+    container_name: postgres-server
+    volumes:
+      - /docker/postgresql/data:/var/lib/postgresql/data:rw
+    env_file:
+      - /docker/zabbix/env_vars/.env_db_pgsql
+    secrets:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+    networks:
+      zabbix-network
+
+networks:
+  zabbix-network:
+    driver: bridge
+
+secrets:
+  POSTGRES_USER:
+    file: /docker/zabbix/env_vars/.POSTGRES_USER
+  POSTGRES_PASSWORD:
+    file: /docker/zabbix/env_vars/.POSTGRES_PASSWORD
