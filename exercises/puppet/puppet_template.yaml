@@ -1,0 +1,496 @@
+zabbix_export:
+  version: '6.4'
+  template_groups:
+    - uuid: 7df96b18c230490a9a0a9e2307226338
+      name: Templates
+  templates:
+    - uuid: 37ccca5158814236bf691937a9997582
+      template: 'Custom - OS - Puppet'
+      name: 'Custom - OS - Puppet'
+      groups:
+        - name: Templates
+      items:
+        - uuid: 28a4b46ea1b549e0a6dc4cd8bb8878c8
+          name: 'Puppet Agent Process'
+          type: ZABBIX_ACTIVE
+          key: 'proc.num[,root,,.*ruby.*puppet agent.*$]'
+          delay: '300'
+          valuemap:
+            name: 'Service state'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+          triggers:
+            - uuid: 7a55804dc92f44dfa3f280508a72428d
+              expression: '(last(/Custom - OS - Puppet/proc.num[,root,,.*ruby.*puppet agent.*$])<1) or (nodata(/Custom - OS - Puppet/proc.num[,root,,.*ruby.*puppet agent.*$],3700s)=1)'
+              name: 'Puppet Agent Process not  active for one hour'
+              status: DISABLED
+              priority: WARNING
+              description: 'Trigger if Puppet Agent Process is not running or has no data for 1h'
+              dependencies:
+                - name: 'Puppet disabled'
+                  expression: 'find(/Custom - OS - Puppet/puppet[disabled],,"like","NOT DISABLED")=0'
+        - uuid: 0c6e806a1053490bb0f4a31277e4e87c
+          name: 'Puppet Changes Total'
+          type: DEPENDENT
+          key: 'puppet[changes,total]'
+          delay: '0'
+          history: 30d
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.changes.total
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+        - uuid: 8991eea0ab7249558a1324fb6b4fd927
+          name: 'Puppet Disabled'
+          type: DEPENDENT
+          key: 'puppet[disabled]'
+          delay: '0'
+          history: 30d
+          trends: '0'
+          value_type: TEXT
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.disabled
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+          triggers:
+            - uuid: a8b5e31888fc4684a4f93b4180d856e7
+              expression: 'find(/Custom - OS - Puppet/puppet[disabled],,"like","NOT DISABLED")=0'
+              name: 'Puppet disabled'
+              priority: WARNING
+        - uuid: ee5c20e65c5f4ceb9ccd36b909826b18
+          name: 'Puppet Environment'
+          type: DEPENDENT
+          key: 'puppet[environment]'
+          delay: '0'
+          history: 30d
+          trends: '0'
+          value_type: TEXT
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.environment
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+          triggers:
+            - uuid: 102b0d53cecc4e409deec043523a5f3a
+              expression: 'last(/Custom - OS - Puppet/puppet[environment],#1)<>last(/Custom - OS - Puppet/puppet[environment],#2)'
+              name: 'Puppet environment changed from {ITEM.VALUE1} to {ITEM.VALUE2}'
+              priority: WARNING
+              manual_close: 'YES'
+        - uuid: d3d89503e9a7481eaf1b332d0af60627
+          name: 'Puppet Events Failure'
+          type: DEPENDENT
+          key: 'puppet[events,failure]'
+          delay: '0'
+          history: 30d
+          units: events
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.events.failure
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+        - uuid: 27973aa296ff46d6ad5901da6aac88f7
+          name: 'Puppet Events Success'
+          type: DEPENDENT
+          key: 'puppet[events,success]'
+          delay: '0'
+          history: 30d
+          units: events
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.events.success
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+        - uuid: 67f7d4545919478da93c669857769345
+          name: 'Puppet Events Total'
+          type: DEPENDENT
+          key: 'puppet[events,total]'
+          delay: '0'
+          history: 30d
+          units: events
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.events.total
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+        - uuid: a89a9296e8494bac985f869df6e8e495
+          name: 'Puppet resources changed'
+          type: DEPENDENT
+          key: 'puppet[resources,changed]'
+          delay: '0'
+          history: 30d
+          units: res
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.resources.changed
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+        - uuid: 018e0c5a63d74015be3c803ecbfce14d
+          name: 'Puppet resources failed_to_restart'
+          type: DEPENDENT
+          key: 'puppet[resources,failed_to_restart]'
+          delay: '0'
+          history: 30d
+          units: res
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.resources.failed_to_restart
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+        - uuid: 12234ed31b5f47ea9264dfebd337fdee
+          name: 'Puppet resources out_of_sync'
+          type: DEPENDENT
+          key: 'puppet[resources,out_of_sync]'
+          delay: '0'
+          history: 30d
+          units: res
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.resources.out_of_sync
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+        - uuid: 1e62a25fd7744e0e8957b10d8f181fab
+          name: 'Puppet resources restarted'
+          type: DEPENDENT
+          key: 'puppet[resources,restarted]'
+          delay: '0'
+          history: 30d
+          units: res
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.resources.restarted
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+        - uuid: c0999586af684182a9cccb066208a1e6
+          name: 'Puppet resources scheduled'
+          type: DEPENDENT
+          key: 'puppet[resources,scheduled]'
+          delay: '0'
+          history: 30d
+          units: res
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.resources.scheduled
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+        - uuid: c34cad2202b54e99b7b79683110b0013
+          name: 'Puppet resources skipped'
+          type: DEPENDENT
+          key: 'puppet[resources,skipped]'
+          delay: '0'
+          history: 30d
+          units: res
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.resources.skipped
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+        - uuid: 78051d70d4754f309283ecbdcf854896
+          name: 'Puppet resources total'
+          type: DEPENDENT
+          key: 'puppet[resources,total]'
+          delay: '0'
+          history: 30d
+          units: res
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.resources.total
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+        - uuid: 1a2aa12016154813ba75e8dbc308aa7e
+          name: 'Puppet State'
+          type: DEPENDENT
+          key: 'puppet[state]'
+          delay: '0'
+          history: 30d
+          trends: '0'
+          value_type: TEXT
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.state
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+          triggers:
+            - uuid: 17bfb14b2e8044baba55c415ab79f477
+              expression: 'find(/Custom - OS - Puppet/puppet[state],,"like","ERROR")=1'
+              name: 'Last puppet run failed'
+              priority: WARNING
+        - uuid: 8318303c36864ed7a5f4fadac395cbb5
+          name: 'Puppet time config_retrieval'
+          type: DEPENDENT
+          key: 'puppet[time,config_retrieval]'
+          delay: '0'
+          history: 14d
+          trends: 90d
+          value_type: FLOAT
+          units: s
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.time.config_retrieval
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+          triggers:
+            - uuid: 68e8c602cac34d08beaaaa60eac2b71e
+              expression: 'last(/Custom - OS - Puppet/puppet[time,config_retrieval])>60'
+              name: 'Puppet Retrieve Catalog took > 60 sec'
+              priority: WARNING
+        - uuid: 5c3209baa3844645856545d505f6052b
+          name: 'Puppet time last_run'
+          type: DEPENDENT
+          key: 'puppet[time,last_run]'
+          delay: '0'
+          history: 30d
+          units: unixtime
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.time.last_run
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+          triggers:
+            - uuid: 17c6ac81bb65408eafe66fcd1ebfb284
+              expression: 'fuzzytime(/Custom - OS - Puppet/puppet[time,last_run],259200s)=0'
+              name: 'Puppet Run older than three days'
+              priority: WARNING
+              dependencies:
+                - name: 'Puppet disabled'
+                  expression: 'find(/Custom - OS - Puppet/puppet[disabled],,"like","NOT DISABLED")=0'
+        - uuid: b275de6a66e441a7b22c8175d6c4dd57
+          name: 'Puppet time total'
+          type: DEPENDENT
+          key: 'puppet[time,total]'
+          delay: '0'
+          history: 14d
+          trends: 90d
+          value_type: FLOAT
+          units: s
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - $.time.total
+          master_item:
+            key: 'puppet[]'
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+        - uuid: 16020f5294a2482fb5e56ba5f11bafdd
+          name: 'Puppet Global JSON State'
+          type: ZABBIX_ACTIVE
+          key: 'puppet[]'
+          delay: 30m
+          history: 3d
+          trends: '0'
+          value_type: TEXT
+          tags:
+            - tag: Application
+              value: 'OS - Puppet'
+          triggers:
+            - uuid: 501d5c10b5fa48fbafd049f9448da8dc
+              expression: 'nodata(/Custom - OS - Puppet/puppet[],4000s)=1'
+              name: 'Puppet nodata'
+              priority: WARNING
+              dependencies:
+                - name: 'Last puppet run failed'
+                  expression: 'find(/Custom - OS - Puppet/puppet[state],,"like","ERROR")=1'
+                - name: 'Puppet Agent Process not  active for one hour'
+                  expression: '(last(/Custom - OS - Puppet/proc.num[,root,,.*ruby.*puppet agent.*$])<1) or (nodata(/Custom - OS - Puppet/proc.num[,root,,.*ruby.*puppet agent.*$],3700s)=1)'
+                - name: 'Puppet Run older than three days'
+                  expression: 'fuzzytime(/Custom - OS - Puppet/puppet[time,last_run],259200s)=0'
+      dashboards:
+        - uuid: 716c2e461fc340bbaf82de2659ebc34b
+          name: 'Custom - OS - Puppet'
+          pages:
+            - widgets:
+                - type: graph
+                  width: '24'
+                  height: '7'
+                  fields:
+                    - type: GRAPH
+                      name: graphid
+                      value:
+                        host: 'Custom - OS - Puppet'
+                        name: 'Puppet Execution Time'
+                    - type: INTEGER
+                      name: source_type
+                      value: '0'
+                - type: graph
+                  'y': '7'
+                  width: '24'
+                  height: '7'
+                  fields:
+                    - type: GRAPH
+                      name: graphid
+                      value:
+                        host: 'Custom - OS - Puppet'
+                        name: 'Puppet Resources'
+                    - type: INTEGER
+                      name: source_type
+                      value: '0'
+                - type: graph
+                  'y': '14'
+                  width: '24'
+                  height: '7'
+                  fields:
+                    - type: GRAPH
+                      name: graphid
+                      value:
+                        host: 'Custom - OS - Puppet'
+                        name: 'Puppet Events'
+                    - type: INTEGER
+                      name: source_type
+                      value: '0'
+      valuemaps:
+        - uuid: f03f79d270604b79b9df746f05f3b779
+          name: 'Service state'
+          mappings:
+            - value: '0'
+              newvalue: Down
+            - value: '1'
+              newvalue: Up
+  graphs:
+    - uuid: a2a55dd0c25f4392a19655ffd425b9cb
+      name: 'Puppet Events'
+      height: '300'
+      ymin_type_1: FIXED
+      graph_items:
+        - color: DD0000
+          item:
+            host: 'Custom - OS - Puppet'
+            key: 'puppet[events,failure]'
+        - sortorder: '1'
+          color: 00AA00
+          item:
+            host: 'Custom - OS - Puppet'
+            key: 'puppet[events,success]'
+        - sortorder: '2'
+          color: 2774A4
+          item:
+            host: 'Custom - OS - Puppet'
+            key: 'puppet[events,total]'
+    - uuid: e8e9e8ef3e3444758cffa66c7e85a704
+      name: 'Puppet Execution Time'
+      height: '300'
+      ymin_type_1: FIXED
+      graph_items:
+        - color: BB00BB
+          calc_fnc: MAX
+          item:
+            host: 'Custom - OS - Puppet'
+            key: 'puppet[time,config_retrieval]'
+        - sortorder: '1'
+          drawtype: GRADIENT_LINE
+          color: 00BB00
+          calc_fnc: MAX
+          item:
+            host: 'Custom - OS - Puppet'
+            key: 'puppet[time,total]'
+    - uuid: 5b54daa9d96f41a986c644c4d5940b52
+      name: 'Puppet Resources'
+      height: '300'
+      ymin_type_1: FIXED
+      graph_items:
+        - color: C80000
+          calc_fnc: MAX
+          item:
+            host: 'Custom - OS - Puppet'
+            key: 'puppet[resources,total]'
+        - sortorder: '1'
+          color: 00C800
+          calc_fnc: MAX
+          item:
+            host: 'Custom - OS - Puppet'
+            key: 'puppet[resources,changed]'
+        - sortorder: '2'
+          color: 0000C8
+          calc_fnc: MAX
+          item:
+            host: 'Custom - OS - Puppet'
+            key: 'puppet[resources,failed_to_restart]'
+        - sortorder: '3'
+          color: C800C8
+          calc_fnc: MAX
+          item:
+            host: 'Custom - OS - Puppet'
+            key: 'puppet[resources,out_of_sync]'
+        - sortorder: '4'
+          color: 00C8C8
+          calc_fnc: MAX
+          item:
+            host: 'Custom - OS - Puppet'
+            key: 'puppet[resources,restarted]'
+        - sortorder: '5'
+          color: C8C800
+          calc_fnc: MAX
+          item:
+            host: 'Custom - OS - Puppet'
+            key: 'puppet[resources,scheduled]'
+        - sortorder: '6'
+          color: C8C8C8
+          calc_fnc: MAX
+          item:
+            host: 'Custom - OS - Puppet'
+            key: 'puppet[resources,skipped]'
