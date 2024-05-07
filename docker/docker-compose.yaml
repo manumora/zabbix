@@ -46,6 +46,7 @@ services:
       - postgres-server
     networks:
       - zabbix-network
+    restart: always
 
   zabbix-web:
     image: zabbix/zabbix-web-nginx-pgsql:ubuntu-6.4-latest
@@ -68,6 +69,7 @@ services:
       - zabbix-server
     networks:
       - zabbix-network
+    restart: always
 
   postgres-server:
     image: postgres:15-alpine
@@ -81,6 +83,7 @@ services:
       - POSTGRES_PASSWORD
     networks:
       - zabbix-network
+    restart: always
 
 networks:
   zabbix-network:
