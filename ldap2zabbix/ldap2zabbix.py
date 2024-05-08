@@ -99,14 +99,6 @@ def main():
             ip=ip,
             dns="%s.%s" % (hostname, domain),
             port="10050"
-          ),
-          dict( 
-            type=1,
-            main=0,
-            useip=1,
-            ip=ip,
-            dns="%s.%s" % (hostname, domain),
-            port="10050"
           )
         ],
         groups=[
