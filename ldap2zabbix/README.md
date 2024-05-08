@@ -1,10 +1,11 @@
+
 # LDAP to Zabbix
 Migration hosts from LDAP to Zabbix
 
 ## Installation
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements
+- python3 -m venv venv
+- source venv/bin/activate
+- pip install -r requirements
 
 ## Configuration
 Fill the following parameters
