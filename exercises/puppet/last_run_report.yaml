@@ -1,0 +1,3602 @@
+--- !ruby/object:Puppet::Transaction::Report
+  metrics: 
+    resources: !ruby/object:Puppet::Util::Metric
+      name: resources
+      label: Resources
+      values: 
+        - - total
+          - Total
+          - 130
+        - - skipped
+          - Skipped
+          - 0
+        - - failed
+          - Failed
+          - 0
+        - - failed_to_restart
+          - "Failed to restart"
+          - 0
+        - - restarted
+          - Restarted
+          - 0
+        - - changed
+          - Changed
+          - 0
+        - - out_of_sync
+          - "Out of sync"
+          - 0
+        - - scheduled
+          - Scheduled
+          - 0
+    time: !ruby/object:Puppet::Util::Metric
+      name: time
+      label: Time
+      values: 
+        - - schedule
+          - Schedule
+          - 0.000460397
+        - - exec
+          - Exec
+          - 0.7459361170000001
+        - - package
+          - Package
+          - 1.3252468120000003
+        - - file
+          - File
+          - 0.587350284
+        - - user
+          - User
+          - 0.0025312340000000003
+        - - ssh_authorized_key
+          - "Ssh authorized key"
+          - 0.000357141
+        - - filebucket
+          - Filebucket
+          - 6.4187e-05
+        - - cron
+          - Cron
+          - 0.00035488399999999997
+        - - config_retrieval
+          - "Config retrieval"
+          - 0.7864604590000113
+        - - total
+          - Total
+          - 3.4487615150000117
+    changes: !ruby/object:Puppet::Util::Metric
+      name: changes
+      label: Changes
+      values: 
+        - - total
+          - Total
+          - 0
+    events: !ruby/object:Puppet::Util::Metric
+      name: events
+      label: Events
+      values: 
+        - - total
+          - Total
+          - 0
+        - - failure
+          - Failure
+          - 0
+        - - success
+          - Success
+          - 0
+  logs: 
+    - !ruby/object:Puppet::Util::Log
+      level: !ruby/sym info
+      tags: 
+        - info
+      message: "Caching catalog for b6620e70-ae1a-11ee-8f79-175ea3815fd0"
+      source: Puppet
+      time: 2024-04-29 08:21:56.570987 +02:00
+    - !ruby/object:Puppet::Util::Log
+      level: !ruby/sym info
+      tags: 
+        - info
+      message: "Applying configuration version '1714371426'"
+      source: Puppet
+      time: 2024-04-29 08:21:56.744069 +02:00
+    - !ruby/object:Puppet::Util::Log
+      level: !ruby/sym notice
+      tags: 
+        - notice
+      message: "Finished catalog run in 2.83 seconds"
+      source: Puppet
+      time: 2024-04-29 08:21:59.536422 +02:00
+  resource_statuses: 
+    Schedule[daily]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[daily]
+      file: 
+      line: 
+      evaluation_time: 5.2749e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - schedule
+        - daily
+      time: 2024-04-29 08:21:56.745883 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: daily
+      skipped: false
+      failed: false
+      containment_path: 
+        - Schedule[daily]
+    Schedule[monthly]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[monthly]
+      file: 
+      line: 
+      evaluation_time: 2.1834e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - schedule
+        - monthly
+      time: 2024-04-29 08:21:56.745998 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: monthly
+      skipped: false
+      failed: false
+      containment_path: 
+        - Schedule[monthly]
+    Schedule[hourly]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[hourly]
+      file: 
+      line: 
+      evaluation_time: 2.2272e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - schedule
+        - hourly
+      time: 2024-04-29 08:21:56.746168 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: hourly
+      skipped: false
+      failed: false
+      containment_path: 
+        - Schedule[hourly]
+    Exec[aptgetupdate]: !ruby/object:Puppet::Resource::Status
+      resource: Exec[aptgetupdate]
+      file: /etc/puppet/modules/apt-get-update/manifests/init.pp
+      line: 5
+      evaluation_time: 0.005742483
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - aptgetupdate
+        - class
+        - apt-get-update
+      time: 2024-04-29 08:21:56.746355 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: aptgetupdate
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[first]
+        - Apt-get-update
+        - Exec[aptgetupdate]
+    Package[ffmpeg]: !ruby/object:Puppet::Resource::Status
+      resource: Package[ffmpeg]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 218
+      evaluation_time: 0.060704022
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - ffmpeg
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:56.798515 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: ffmpeg
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Package[ffmpeg]
+    Package[librecad-data]: !ruby/object:Puppet::Resource::Status
+      resource: Package[librecad-data]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 204
+      evaluation_time: 0.058058076
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - librecad-data
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:56.860321 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: librecad-data
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Package[librecad-data]
+    Schedule[semanal]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[semanal]
+      file: /etc/puppet/manifests/classes/frecuencias.pp
+      line: 9
+      evaluation_time: 4.9598e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - schedule
+        - semanal
+        - class
+      time: 2024-04-29 08:21:56.919490 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: semanal
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Main
+        - Schedule[semanal]
+    Package[crocodile-emu-linex]: !ruby/object:Puppet::Resource::Status
+      resource: Package[crocodile-emu-linex]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 206
+      evaluation_time: 0.061347602
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - crocodile-emu-linex
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:56.919704 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: crocodile-emu-linex
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Package[crocodile-emu-linex]
+    Package[swig]: !ruby/object:Puppet::Resource::Status
+      resource: Package[swig]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 212
+      evaluation_time: 0.058944224
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - swig
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:56.981324 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: swig
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Package[swig]
+    File[/etc/cron.daily/google-chrome]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/cron.daily/google-chrome]
+      file: /etc/puppet/modulesSec/xubuntu2204/manifests/paqueteria.pp
+      line: 16
+      evaluation_time: 0.000141745
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:57.041211 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/cron.daily/google-chrome
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - File[/etc/cron.daily/google-chrome]
+    Package[linex-ocsinventory-agent]: !ruby/object:Puppet::Resource::Status
+      resource: Package[linex-ocsinventory-agent]
+      file: /etc/puppet/modulesSec/xubuntu2204/manifests/paqueteria.pp
+      line: 62
+      evaluation_time: 0.061213123
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - linex-ocsinventory-agent
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:57.041529 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: linex-ocsinventory-agent
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - Package[linex-ocsinventory-agent]
+    "Exec[/bin/echo 'python3-dev' >> /etc/pkgsync/mayhave]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'python3-dev' >> /etc/pkgsync/mayhave]"
+      file: /etc/puppet/manifests/classes/addmusthave.pp
+      line: 17
+      evaluation_time: 0.003224602
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - addmayhave
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.103451 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'python3-dev' >> /etc/pkgsync/mayhave"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - "Addmayhave[inserta python3-dev]"
+        - "Exec[/bin/echo 'python3-dev' >> /etc/pkgsync/mayhave]"
+    Package[kdenlive]: !ruby/object:Puppet::Resource::Status
+      resource: Package[kdenlive]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 199
+      evaluation_time: 0.058062537
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - kdenlive
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.107021 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: kdenlive
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Package[kdenlive]
+    Schedule[diario]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[diario]
+      file: /etc/puppet/manifests/classes/frecuencias.pp
+      line: 4
+      evaluation_time: 5.162e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - schedule
+        - diario
+        - class
+      time: 2024-04-29 08:21:57.165546 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: diario
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Main
+        - Schedule[diario]
+    "Exec[/bin/echo 'firefox-locale-es' >> /etc/pkgsync/mayhave]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'firefox-locale-es' >> /etc/pkgsync/mayhave]"
+      file: /etc/puppet/manifests/classes/addmusthave.pp
+      line: 17
+      evaluation_time: 0.003221138
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - addmayhave
+        - firefox-locale-es
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:57.165826 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'firefox-locale-es' >> /etc/pkgsync/mayhave"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - Addmayhave[firefox-locale-es]
+        - "Exec[/bin/echo 'firefox-locale-es' >> /etc/pkgsync/mayhave]"
+    Package[python3-dev]: !ruby/object:Puppet::Resource::Status
+      resource: Package[python3-dev]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 207
+      evaluation_time: 0.058402275
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - python3-dev
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.169518 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: python3-dev
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Package[python3-dev]
+    "File[/var/lib/puppet/state/*]": !ruby/object:Puppet::Resource::Status
+      resource: "File[/var/lib/puppet/state/*]"
+      file: /etc/puppet/modules/zabbix_apps/manifests/init.pp
+      line: 37
+      evaluation_time: 0.000137865
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - zabbix_apps
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.237068 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: "/var/lib/puppet/state/*"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_apps
+        - "File[/var/lib/puppet/state/*]"
+    Exec[ssh_config]: !ruby/object:Puppet::Resource::Status
+      resource: Exec[ssh_config]
+      file: /etc/puppet/modules/allinone/manifests/varios.pp
+      line: 44
+      evaluation_time: 0.003355934
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - ssh_config
+        - class
+        - "allinone::varios"
+        - allinone
+        - varios
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.237811 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: ssh_config
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Varios"
+        - Exec[ssh_config]
+    "Exec[/bin/echo 'linex-arduino' >> /etc/pkgsync/mayhave]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'linex-arduino' >> /etc/pkgsync/mayhave]"
+      file: /etc/puppet/manifests/classes/addmusthave.pp
+      line: 17
+      evaluation_time: 0.002920465
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - addmayhave
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.241578 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'linex-arduino' >> /etc/pkgsync/mayhave"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - "Addmayhave[inserta linex-arduino]"
+        - "Exec[/bin/echo 'linex-arduino' >> /etc/pkgsync/mayhave]"
+    Exec[copia_xfce-session-logout]: !ruby/object:Puppet::Resource::Status
+      resource: Exec[copia_xfce-session-logout]
+      file: /etc/puppet/modules/allinone/manifests/boton_cerrar_sesion.pp
+      line: 28
+      evaluation_time: 0.002403179
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - copia_xfce-session-logout
+        - class
+        - "allinone::boton_cerrar_sesion"
+        - allinone
+        - boton_cerrar_sesion
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.244704 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: copia_xfce-session-logout
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Boton_cerrar_sesion"
+        - Exec[copia_xfce-session-logout]
+    "Exec[/bin/echo 'firefox' >> /etc/pkgsync/mayhave]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'firefox' >> /etc/pkgsync/mayhave]"
+      file: /etc/puppet/manifests/classes/addmusthave.pp
+      line: 17
+      evaluation_time: 0.002926916
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - addmayhave
+        - firefox
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:57.247319 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'firefox' >> /etc/pkgsync/mayhave"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - Addmayhave[firefox]
+        - "Exec[/bin/echo 'firefox' >> /etc/pkgsync/mayhave]"
+    "Exec[/bin/echo 'firefox-locale-en' >> /etc/pkgsync/mayhave]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'firefox-locale-en' >> /etc/pkgsync/mayhave]"
+      file: /etc/puppet/manifests/classes/addmusthave.pp
+      line: 17
+      evaluation_time: 0.002881237
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - addmayhave
+        - firefox-locale-en
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:57.250767 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'firefox-locale-en' >> /etc/pkgsync/mayhave"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - Addmayhave[firefox-locale-en]
+        - "Exec[/bin/echo 'firefox-locale-en' >> /etc/pkgsync/mayhave]"
+    File[/etc/zabbix/run]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/zabbix/run]
+      file: /etc/puppet/modules/zabbix_apps/manifests/init.pp
+      line: 25
+      evaluation_time: 0.000134941
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - zabbix_apps
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.253867 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/zabbix/run
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_apps
+        - File[/etc/zabbix/run]
+    User[linex]: !ruby/object:Puppet::Resource::Status
+      resource: User[linex]
+      file: /etc/puppet/modules/allinone/manifests/users.pp
+      line: 27
+      evaluation_time: 0.00234356
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - user
+        - linex
+        - class
+        - "allinone::users"
+        - allinone
+        - users
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.254382 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: User
+      title: linex
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Users"
+        - User[linex]
+    "Exec[/bin/sed -i 's/'ldap_tls_reqcert' *=.*/'ldap_tls_reqcert'='never'/g' '/etc/sssd/sssd.conf']": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/sed -i 's/'ldap_tls_reqcert' *=.*/'ldap_tls_reqcert'='never'/g' '/etc/sssd/sssd.conf']"
+      file: /etc/puppet/modules/allinone/manifests/utils.pp
+      line: 31
+      evaluation_time: 0.003327394
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - setconfigurationaio
+        - set-tls-reqcert
+        - class
+        - "allinone::ldap"
+        - allinone
+        - ldap
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.257223 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/sed -i 's/'ldap_tls_reqcert' *=.*/'ldap_tls_reqcert'='never'/g' '/etc/sssd/sssd.conf'"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Ldap"
+        - Setconfigurationaio[set-tls-reqcert]
+        - "Exec[/bin/sed -i 's/'ldap_tls_reqcert' *=.*/'ldap_tls_reqcert'='never'/g' '/etc/sssd/sssd.conf']"
+    Package[zabbix-agent2]: !ruby/object:Puppet::Resource::Status
+      resource: Package[zabbix-agent2]
+      file: /etc/puppet/modules/zabbix_agent2/manifests/init.pp
+      line: 49
+      evaluation_time: 7.9357e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - zabbix-agent2
+        - class
+        - zabbix_agent2
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.261330 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: zabbix-agent2
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_agent2
+        - Package[zabbix-agent2]
+    "Exec[/bin/sed -i 's/'Server'=.*/'Server'='zabbix.santaeulalia'/g' '/etc/zabbix/zabbix_agent2.conf'; /usr/bin/systemctl restart zabbix-agent2]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/sed -i 's/'Server'=.*/'Server'='zabbix.santaeulalia'/g' '/etc/zabbix/zabbix_agent2.conf'; /usr/bin/systemctl restart zabbix-agent2]"
+      file: /etc/puppet/modules/zabbix_agent2/manifests/utils.pp
+      line: 43
+      evaluation_time: 0.00316287
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - set_configuration_zabbix_agent2
+        - set-zabbix-server
+        - class
+        - zabbix_agent2
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.261674 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/sed -i 's/'Server'=.*/'Server'='zabbix.santaeulalia'/g' '/etc/zabbix/zabbix_agent2.conf'; /usr/bin/systemctl restart zabbix-agent2"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_agent2
+        - Set_configuration_zabbix_agent2[set-zabbix-server]
+        - "Exec[/bin/sed -i 's/'Server'=.*/'Server'='zabbix.santaeulalia'/g' '/etc/zabbix/zabbix_agent2.conf'; /usr/bin/systemctl restart zabbix-agent2]"
+    Exec[instalar_zabbix_release_1804]: !ruby/object:Puppet::Resource::Status
+      resource: Exec[instalar_zabbix_release_1804]
+      file: /etc/puppet/modules/zabbix_agent2/manifests/init.pp
+      line: 45
+      evaluation_time: 0.022034851
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - instalar_zabbix_release_1804
+        - class
+        - zabbix_agent2
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.265208 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: instalar_zabbix_release_1804
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_agent2
+        - Exec[instalar_zabbix_release_1804]
+    Package[ideservice]: !ruby/object:Puppet::Resource::Status
+      resource: Package[ideservice]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 201
+      evaluation_time: 0.05857979
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - ideservice
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.287480 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: ideservice
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Package[ideservice]
+    File[/etc/zabbix/zabbix_agent2.d]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/zabbix/zabbix_agent2.d]
+      file: /etc/puppet/modules/zabbix_apps/manifests/init.pp
+      line: 29
+      evaluation_time: 0.000115583
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - zabbix_apps
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.346392 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/zabbix/zabbix_agent2.d
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_apps
+        - File[/etc/zabbix/zabbix_agent2.d]
+    Exec[instalar_zabbix_release_2204]: !ruby/object:Puppet::Resource::Status
+      resource: Exec[instalar_zabbix_release_2204]
+      file: /etc/puppet/modules/zabbix_agent2/manifests/init.pp
+      line: 39
+      evaluation_time: 0.0223225
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - instalar_zabbix_release_2204
+        - class
+        - zabbix_agent2
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.346618 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: instalar_zabbix_release_2204
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_agent2
+        - Exec[instalar_zabbix_release_2204]
+    Package[okular]: !ruby/object:Puppet::Resource::Status
+      resource: Package[okular]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 200
+      evaluation_time: 0.058265541
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - okular
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.369696 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: okular
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Package[okular]
+    "Exec[/bin/echo 'libfann-dev' >> /etc/pkgsync/mayhave]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'libfann-dev' >> /etc/pkgsync/mayhave]"
+      file: /etc/puppet/manifests/classes/addmusthave.pp
+      line: 17
+      evaluation_time: 0.003116983
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - addmayhave
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.428270 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'libfann-dev' >> /etc/pkgsync/mayhave"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - "Addmayhave[inserta libfann-dev]"
+        - "Exec[/bin/echo 'libfann-dev' >> /etc/pkgsync/mayhave]"
+    "Exec[/bin/echo 'cache_credentials=false' >> '/etc/sssd/sssd.conf']": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'cache_credentials=false' >> '/etc/sssd/sssd.conf']"
+      file: /etc/puppet/modules/allinone/manifests/utils.pp
+      line: 35
+      evaluation_time: 0.002886436
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - setconfigurationaio
+        - set-cache-credentials
+        - class
+        - "allinone::ldap"
+        - allinone
+        - ldap
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.431878 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'cache_credentials=false' >> '/etc/sssd/sssd.conf'"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Ldap"
+        - Setconfigurationaio[set-cache-credentials]
+        - "Exec[/bin/echo 'cache_credentials=false' >> '/etc/sssd/sssd.conf']"
+    "Exec[/bin/sed -i 's/'cache_credentials' *=.*/'cache_credentials'='false'/g' '/etc/sssd/sssd.conf']": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/sed -i 's/'cache_credentials' *=.*/'cache_credentials'='false'/g' '/etc/sssd/sssd.conf']"
+      file: /etc/puppet/modules/allinone/manifests/utils.pp
+      line: 31
+      evaluation_time: 0.002825544
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - setconfigurationaio
+        - set-cache-credentials
+        - class
+        - "allinone::ldap"
+        - allinone
+        - ldap
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.434993 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/sed -i 's/'cache_credentials' *=.*/'cache_credentials'='false'/g' '/etc/sssd/sssd.conf'"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Ldap"
+        - Setconfigurationaio[set-cache-credentials]
+        - "Exec[/bin/sed -i 's/'cache_credentials' *=.*/'cache_credentials'='false'/g' '/etc/sssd/sssd.conf']"
+    Package[python3-pip]: !ruby/object:Puppet::Resource::Status
+      resource: Package[python3-pip]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 210
+      evaluation_time: 0.05941031
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - python3-pip
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.438226 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: python3-pip
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Package[python3-pip]
+    User[root]: !ruby/object:Puppet::Resource::Status
+      resource: User[root]
+      file: /etc/puppet/manifests/classes/comunes/cambia-root.pp
+      line: 9
+      evaluation_time: 0.000187674
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - user
+        - root
+        - class
+        - cambia-root
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.497972 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: User
+      title: root
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Cambia-root
+        - User[root]
+    File[/etc/zabbix/zabbix_agent2.d/zabbix_check_puppetstate.conf]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/zabbix/zabbix_agent2.d/zabbix_check_puppetstate.conf]
+      file: /etc/puppet/modules/zabbix_apps/manifests/init.pp
+      line: 43
+      evaluation_time: 0.030790191
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - zabbix_apps
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.498411 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/zabbix/zabbix_agent2.d/zabbix_check_puppetstate.conf
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_apps
+        - File[/etc/zabbix/zabbix_agent2.d/zabbix_check_puppetstate.conf]
+    File[/etc/ldap/ssl/ldap-server-pubkey.pem]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/ldap/ssl/ldap-server-pubkey.pem]
+      file: /etc/puppet/modules/allinone/manifests/ldap.pp
+      line: 29
+      evaluation_time: 0.017176245
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "allinone::ldap"
+        - allinone
+        - ldap
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.529334 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/ldap/ssl/ldap-server-pubkey.pem
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Ldap"
+        - File[/etc/ldap/ssl/ldap-server-pubkey.pem]
+    File[/etc/zabbix/zabbix_agent2.d/temperatures.conf]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/zabbix/zabbix_agent2.d/temperatures.conf]
+      file: /etc/puppet/modules/zabbix_apps/manifests/init.pp
+      line: 81
+      evaluation_time: 0.015450752
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - zabbix_apps
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.546621 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/zabbix/zabbix_agent2.d/temperatures.conf
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_apps
+        - File[/etc/zabbix/zabbix_agent2.d/temperatures.conf]
+    File[/etc/grub.d/30_os-prober]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/grub.d/30_os-prober]
+      file: /etc/puppet/modules/allinone/manifests/grub.pp
+      line: 29
+      evaluation_time: 0.000158201
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "allinone::grub"
+        - allinone
+        - grub
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.562186 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/grub.d/30_os-prober
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Grub"
+        - File[/etc/grub.d/30_os-prober]
+    File[/etc/grub.d/30_uefi-firmware]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/grub.d/30_uefi-firmware]
+      file: /etc/puppet/modules/allinone/manifests/grub.pp
+      line: 36
+      evaluation_time: 0.00013162
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "allinone::grub"
+        - allinone
+        - grub
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.562438 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/grub.d/30_uefi-firmware
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Grub"
+        - File[/etc/grub.d/30_uefi-firmware]
+    File[/etc/xdg/autostart/AjustesSesion.desktop]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/xdg/autostart/AjustesSesion.desktop]
+      file: /etc/puppet/modules/ajustesnavegadores/manifests/init.pp
+      line: 12
+      evaluation_time: 0.022384024
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - ajustesnavegadores
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.562674 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/xdg/autostart/AjustesSesion.desktop
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Ajustesnavegadores
+        - File[/etc/xdg/autostart/AjustesSesion.desktop]
+    File[bloqueo-firefox]: !ruby/object:Puppet::Resource::Status
+      resource: File[bloqueo-firefox]
+      file: /etc/puppet/modulesSec/xubuntu2204/manifests/paqueteria.pp
+      line: 75
+      evaluation_time: 0.02435093
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - bloqueo-firefox
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:57.585194 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: bloqueo-firefox
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - File[bloqueo-firefox]
+    File[/usr/share/linex-config-ldapclient/pam.d/common-session]: !ruby/object:Puppet::Resource::Status
+      resource: File[/usr/share/linex-config-ldapclient/pam.d/common-session]
+      file: /etc/puppet/modules/allinone/manifests/ldap.pp
+      line: 48
+      evaluation_time: 0.025012027
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "allinone::ldap"
+        - allinone
+        - ldap
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.609670 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /usr/share/linex-config-ldapclient/pam.d/common-session
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Ldap"
+        - File[/usr/share/linex-config-ldapclient/pam.d/common-session]
+    File[/etc/zabbix/zabbix_agent2.d/user_logged.conf]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/zabbix/zabbix_agent2.d/user_logged.conf]
+      file: /etc/puppet/modules/zabbix_apps/manifests/init.pp
+      line: 69
+      evaluation_time: 0.028592262
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - zabbix_apps
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.634805 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/zabbix/zabbix_agent2.d/user_logged.conf
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_apps
+        - File[/etc/zabbix/zabbix_agent2.d/user_logged.conf]
+    File[/etc/zabbix/run/zabbix_check_puppetstate]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/zabbix/run/zabbix_check_puppetstate]
+      file: /etc/puppet/modules/zabbix_apps/manifests/init.pp
+      line: 49
+      evaluation_time: 0.022126214
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - zabbix_apps
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.663536 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/zabbix/run/zabbix_check_puppetstate
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_apps
+        - File[/etc/zabbix/run/zabbix_check_puppetstate]
+    File[/etc/systemd/system/autofs.service.d/override.conf]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/systemd/system/autofs.service.d/override.conf]
+      file: /etc/puppet/modules/allinone/manifests/autofs.pp
+      line: 34
+      evaluation_time: 0.025894715
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "allinone::autofs"
+        - allinone
+        - autofs
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.685819 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/systemd/system/autofs.service.d/override.conf
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Autofs"
+        - File[/etc/systemd/system/autofs.service.d/override.conf]
+    File[/etc/zabbix/run/temperatures.py]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/zabbix/run/temperatures.py]
+      file: /etc/puppet/modules/zabbix_apps/manifests/init.pp
+      line: 87
+      evaluation_time: 0.034187275
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - zabbix_apps
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.711879 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/zabbix/run/temperatures.py
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_apps
+        - File[/etc/zabbix/run/temperatures.py]
+    "Exec[Reboot autofs]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[Reboot autofs]"
+      file: /etc/puppet/modules/allinone/manifests/autofs.pp
+      line: 41
+      evaluation_time: 5.7088e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - class
+        - "allinone::autofs"
+        - allinone
+        - autofs
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.746218 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "Reboot autofs"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Autofs"
+        - "Exec[Reboot autofs]"
+    Exec[unlink]: !ruby/object:Puppet::Resource::Status
+      resource: Exec[unlink]
+      file: /etc/puppet/modules/allinone/manifests/autofs.pp
+      line: 46
+      evaluation_time: 0.002987682
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - unlink
+        - class
+        - "allinone::autofs"
+        - allinone
+        - autofs
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.746398 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: unlink
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Autofs"
+        - Exec[unlink]
+    File[/etc/apt/sources.list.d/google-chrome.list]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/apt/sources.list.d/google-chrome.list]
+      file: /etc/puppet/modulesSec/xubuntu2204/manifests/paqueteria.pp
+      line: 13
+      evaluation_time: 0.00014138
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:57.749682 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/apt/sources.list.d/google-chrome.list
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - File[/etc/apt/sources.list.d/google-chrome.list]
+    File[/etc/apt/sources.list.d/geogebra.list]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/apt/sources.list.d/geogebra.list]
+      file: /etc/puppet/modulesSec/xubuntu2204/manifests/paqueteria.pp
+      line: 8
+      evaluation_time: 0.000127969
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:57.749937 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/apt/sources.list.d/geogebra.list
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - File[/etc/apt/sources.list.d/geogebra.list]
+    Exec[python3-psutil]: !ruby/object:Puppet::Resource::Status
+      resource: Exec[python3-psutil]
+      file: /etc/puppet/modules/zabbix_apps/manifests/init.pp
+      line: 76
+      evaluation_time: 0.195100566
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - python3-psutil
+        - class
+        - zabbix_apps
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.750165 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: python3-psutil
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_apps
+        - Exec[python3-psutil]
+    "Exec[/bin/echo 'linex-ocsinventory-agent' >> /etc/pkgsync/mayhave]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'linex-ocsinventory-agent' >> /etc/pkgsync/mayhave]"
+      file: /etc/puppet/manifests/classes/addmusthave.pp
+      line: 17
+      evaluation_time: 0.003266584
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - addmayhave
+        - linex-ocsinventory-agent
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:57.945666 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'linex-ocsinventory-agent' >> /etc/pkgsync/mayhave"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - Addmayhave[linex-ocsinventory-agent]
+        - "Exec[/bin/echo 'linex-ocsinventory-agent' >> /etc/pkgsync/mayhave]"
+    "Exec[/bin/echo 'ldap_tls_reqcert=never' >> '/etc/sssd/sssd.conf']": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'ldap_tls_reqcert=never' >> '/etc/sssd/sssd.conf']"
+      file: /etc/puppet/modules/allinone/manifests/utils.pp
+      line: 35
+      evaluation_time: 0.003003987
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - setconfigurationaio
+        - set-tls-reqcert
+        - class
+        - "allinone::ldap"
+        - allinone
+        - ldap
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.949169 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'ldap_tls_reqcert=never' >> '/etc/sssd/sssd.conf'"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Ldap"
+        - Setconfigurationaio[set-tls-reqcert]
+        - "Exec[/bin/echo 'ldap_tls_reqcert=never' >> '/etc/sssd/sssd.conf']"
+    "Exec[/bin/sed -i '/linexeducarex$/d' /root/.ssh/authorized_keys]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/sed -i '/linexeducarex$/d' /root/.ssh/authorized_keys]"
+      file: /etc/puppet/modulesSec/administracion-claves/manifests/init.pp
+      line: 21
+      evaluation_time: 0.003252381
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - class
+        - administracion-claves
+        - xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.952723 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/sed -i '/linexeducarex$/d' /root/.ssh/authorized_keys"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Administracion-claves
+        - "Exec[/bin/sed -i '/linexeducarex$/d' /root/.ssh/authorized_keys]"
+    Ssh_authorized_key[pasarela]: !ruby/object:Puppet::Resource::Status
+      resource: Ssh_authorized_key[pasarela]
+      file: /etc/puppet/modulesSec/administracion-claves/manifests/init.pp
+      line: 16
+      evaluation_time: 0.000153221
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - ssh_authorized_key
+        - pasarela
+        - class
+        - administracion-claves
+        - xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.956466 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Ssh_authorized_key
+      title: pasarela
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Administracion-claves
+        - Ssh_authorized_key[pasarela]
+    "Exec[/usr/bin/wget  -O - http://linex.educarex.es/administracionsi/AdministracionSI_Pub.gpg | /usr/bin/apt-key add  -]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/usr/bin/wget  -O - http://linex.educarex.es/administracionsi/AdministracionSI_Pub.gpg | /usr/bin/apt-key add  -]"
+      file: /etc/puppet/modulesSec/administracion-claves/manifests/init.pp
+      line: 33
+      evaluation_time: 0.080867755
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - class
+        - administracion-claves
+        - xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:57.956732 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/usr/bin/wget  -O - http://linex.educarex.es/administracionsi/AdministracionSI_Pub.gpg | /usr/bin/apt-key add  -"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Administracion-claves
+        - "Exec[/usr/bin/wget  -O - http://linex.educarex.es/administracionsi/AdministracionSI_Pub.gpg | /usr/bin/apt-key add  -]"
+    "Exec[/bin/sed -i '/dgpe1$/d' /root/.ssh/authorized_keys]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/sed -i '/dgpe1$/d' /root/.ssh/authorized_keys]"
+      file: /etc/puppet/modulesSec/administracion-claves/manifests/init.pp
+      line: 24
+      evaluation_time: 0.003420345
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - class
+        - administracion-claves
+        - xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.037814 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/sed -i '/dgpe1$/d' /root/.ssh/authorized_keys"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Administracion-claves
+        - "Exec[/bin/sed -i '/dgpe1$/d' /root/.ssh/authorized_keys]"
+    File[/root/.ssh/]: !ruby/object:Puppet::Resource::Status
+      resource: File[/root/.ssh/]
+      file: /etc/puppet/modulesSec/administracion-claves/manifests/init.pp
+      line: 8
+      evaluation_time: 0.000151375
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - administracion-claves
+        - xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.041457 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /root/.ssh/
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Administracion-claves
+        - File[/root/.ssh/]
+    Package[openshot-qt]: !ruby/object:Puppet::Resource::Status
+      resource: Package[openshot-qt]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 205
+      evaluation_time: 0.059452236
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - openshot-qt
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.041982 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: openshot-qt
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Package[openshot-qt]
+    "Exec[/bin/echo 'python3-pip' >> /etc/pkgsync/mayhave]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'python3-pip' >> /etc/pkgsync/mayhave]"
+      file: /etc/puppet/manifests/classes/addmusthave.pp
+      line: 17
+      evaluation_time: 0.003237468
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - addmayhave
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.101875 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'python3-pip' >> /etc/pkgsync/mayhave"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - "Addmayhave[inserta python3-pip]"
+        - "Exec[/bin/echo 'python3-pip' >> /etc/pkgsync/mayhave]"
+    "Exec[/bin/echo 'swit' >> /etc/pkgsync/mayhave]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'swit' >> /etc/pkgsync/mayhave]"
+      file: /etc/puppet/manifests/classes/addmusthave.pp
+      line: 17
+      evaluation_time: 0.003154909
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - addmayhave
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.105584 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'swit' >> /etc/pkgsync/mayhave"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - "Addmayhave[inserta swig]"
+        - "Exec[/bin/echo 'swit' >> /etc/pkgsync/mayhave]"
+    File[/usr/bin/gnome-keyring-daemon]: !ruby/object:Puppet::Resource::Status
+      resource: File[/usr/bin/gnome-keyring-daemon]
+      file: /etc/puppet/modules/allinone/manifests/varios.pp
+      line: 34
+      evaluation_time: 0.000137314
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "allinone::varios"
+        - allinone
+        - varios
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.109071 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /usr/bin/gnome-keyring-daemon
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Varios"
+        - File[/usr/bin/gnome-keyring-daemon]
+    Schedule[never]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[never]
+      file: 
+      line: 
+      evaluation_time: 3.431e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - schedule
+        - never
+      time: 2024-04-29 08:21:58.109381 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: never
+      skipped: false
+      failed: false
+      containment_path: 
+        - Schedule[never]
+    Package[pkgsync]: !ruby/object:Puppet::Resource::Status
+      resource: Package[pkgsync]
+      file: /etc/puppet/modulesSec/xubuntu2204/manifests/paqueteria.pp
+      line: 24
+      evaluation_time: 0.062129516
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - pkgsync
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:58.109566 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: pkgsync
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - Package[pkgsync]
+    "Exec[/bin/echo 'google-chrome-stable' >> /etc/pkgsync/mayhave]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'google-chrome-stable' >> /etc/pkgsync/mayhave]"
+      file: /etc/puppet/manifests/classes/addmusthave.pp
+      line: 17
+      evaluation_time: 0.003329352
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - addmayhave
+        - google-chrome-stable
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:58.171983 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'google-chrome-stable' >> /etc/pkgsync/mayhave"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - Addmayhave[google-chrome-stable]
+        - "Exec[/bin/echo 'google-chrome-stable' >> /etc/pkgsync/mayhave]"
+    "Exec[/bin/sed -i 's/'Hostname'=.*/'Hostname'='a23-aio'/g' '/etc/zabbix/zabbix_agent2.conf'; /usr/bin/systemctl restart zabbix-agent2]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/sed -i 's/'Hostname'=.*/'Hostname'='a23-aio'/g' '/etc/zabbix/zabbix_agent2.conf'; /usr/bin/systemctl restart zabbix-agent2]"
+      file: /etc/puppet/modules/zabbix_agent2/manifests/utils.pp
+      line: 43
+      evaluation_time: 0.003236345
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - set_configuration_zabbix_agent2
+        - set-zabbix-hostname
+        - class
+        - zabbix_agent2
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.175840 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/sed -i 's/'Hostname'=.*/'Hostname'='a23-aio'/g' '/etc/zabbix/zabbix_agent2.conf'; /usr/bin/systemctl restart zabbix-agent2"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_agent2
+        - Set_configuration_zabbix_agent2[set-zabbix-hostname]
+        - "Exec[/bin/sed -i 's/'Hostname'=.*/'Hostname'='a23-aio'/g' '/etc/zabbix/zabbix_agent2.conf'; /usr/bin/systemctl restart zabbix-agent2]"
+    Package[linex-ubuntu-puppet]: !ruby/object:Puppet::Resource::Status
+      resource: Package[linex-ubuntu-puppet]
+      file: /etc/puppet/modulesSec/xubuntu2204/manifests/paqueteria.pp
+      line: 56
+      evaluation_time: 0.060799433
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - linex-ubuntu-puppet
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:58.179314 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: linex-ubuntu-puppet
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - Package[linex-ubuntu-puppet]
+    "Exec[Desinstala firefox snap]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[Desinstala firefox snap]"
+      file: /etc/puppet/modulesSec/xubuntu2204/manifests/paqueteria.pp
+      line: 83
+      evaluation_time: 0.022294161
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:58.240600 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "Desinstala firefox snap"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - "Exec[Desinstala firefox snap]"
+    Package[firefox]: !ruby/object:Puppet::Resource::Status
+      resource: Package[firefox]
+      file: /etc/puppet/modulesSec/xubuntu2204/manifests/paqueteria.pp
+      line: 36
+      evaluation_time: 0.060196382
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - firefox
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:58.263228 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: firefox
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - Package[firefox]
+    Package[firefox-locale-en]: !ruby/object:Puppet::Resource::Status
+      resource: Package[firefox-locale-en]
+      file: /etc/puppet/modulesSec/xubuntu2204/manifests/paqueteria.pp
+      line: 48
+      evaluation_time: 0.060893928
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - firefox-locale-en
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:58.323726 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: firefox-locale-en
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - Package[firefox-locale-en]
+    Schedule[diario_varias_veces]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[diario_varias_veces]
+      file: /etc/puppet/manifests/classes/frecuencias.pp
+      line: 14
+      evaluation_time: 5.9867e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - schedule
+        - diario_varias_veces
+        - class
+      time: 2024-04-29 08:21:58.384892 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: diario_varias_veces
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Main
+        - Schedule[diario_varias_veces]
+    "Exec[/bin/echo 'PubkeyAcceptedKeyTypes +ssh-rsa' >> '/etc/ssh/sshd_config']": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'PubkeyAcceptedKeyTypes +ssh-rsa' >> '/etc/ssh/sshd_config']"
+      file: /etc/puppet/defines/line.pp
+      line: 7
+      evaluation_time: 0.00335521
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - line
+        - class
+        - "xubuntu2204::configuracion"
+        - xubuntu2204
+        - configuracion
+        - node
+        - default
+      time: 2024-04-29 08:21:58.385243 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'PubkeyAcceptedKeyTypes +ssh-rsa' >> '/etc/ssh/sshd_config'"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Configuracion"
+        - "Line[Permitir RSA en ssh]"
+        - "Exec[/bin/echo 'PubkeyAcceptedKeyTypes +ssh-rsa' >> '/etc/ssh/sshd_config']"
+    File[/etc/x11vnc.pass]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/x11vnc.pass]
+      file: /etc/puppet/modules/instala-x11vnc/manifests/init.pp
+      line: 9
+      evaluation_time: 0.017994463
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - instala-x11vnc
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.389138 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/x11vnc.pass
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Instala-x11vnc
+        - File[/etc/x11vnc.pass]
+    Package[x11vnc]: !ruby/object:Puppet::Resource::Status
+      resource: Package[x11vnc]
+      file: /etc/puppet/modules/instala-x11vnc/manifests/init.pp
+      line: 4
+      evaluation_time: 0.000110324
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - x11vnc
+        - class
+        - instala-x11vnc
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.407258 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: x11vnc
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Instala-x11vnc
+        - Package[x11vnc]
+    File[/etc/init/x11vnc.conf]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/init/x11vnc.conf]
+      file: /etc/puppet/modules/instala-x11vnc/manifests/init.pp
+      line: 15
+      evaluation_time: 0.021489989
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - instala-x11vnc
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.407471 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/init/x11vnc.conf
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Instala-x11vnc
+        - File[/etc/init/x11vnc.conf]
+    File[/etc/init.d/x11vnc]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/init.d/x11vnc]
+      file: /etc/puppet/modules/instala-x11vnc/manifests/init.pp
+      line: 21
+      evaluation_time: 0.013913646
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - instala-x11vnc
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.429066 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/init.d/x11vnc
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Instala-x11vnc
+        - File[/etc/init.d/x11vnc]
+    File[/etc/zabbix/zabbix_agent2.d/interface_info.conf]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/zabbix/zabbix_agent2.d/interface_info.conf]
+      file: /etc/puppet/modules/zabbix_apps/manifests/init.pp
+      line: 56
+      evaluation_time: 0.014931886
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - zabbix_apps
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.443171 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/zabbix/zabbix_agent2.d/interface_info.conf
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_apps
+        - File[/etc/zabbix/zabbix_agent2.d/interface_info.conf]
+    Package[python3-fann2]: !ruby/object:Puppet::Resource::Status
+      resource: Package[python3-fann2]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 216
+      evaluation_time: 0.060583038
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - python3-fann2
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.458259 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: python3-fann2
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Package[python3-fann2]
+    "Exec[retrieve_/var/lib/apt/zabbix-release_latest+ubuntu18.04_all.deb]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[retrieve_/var/lib/apt/zabbix-release_latest+ubuntu18.04_all.deb]"
+      file: /etc/puppet/modules/zabbix_agent2/manifests/utils.pp
+      line: 26
+      evaluation_time: 0.18883623
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - remote_file
+        - class
+        - zabbix_agent2
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.519110 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "retrieve_/var/lib/apt/zabbix-release_latest+ubuntu18.04_all.deb"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_agent2
+        - "Remote_file[/var/lib/apt/zabbix-release_latest+ubuntu18.04_all.deb]"
+        - "Exec[retrieve_/var/lib/apt/zabbix-release_latest+ubuntu18.04_all.deb]"
+    "File[/var/lib/apt/zabbix-release_latest+ubuntu18.04_all.deb]": !ruby/object:Puppet::Resource::Status
+      resource: "File[/var/lib/apt/zabbix-release_latest+ubuntu18.04_all.deb]"
+      file: /etc/puppet/modules/zabbix_agent2/manifests/utils.pp
+      line: 31
+      evaluation_time: 0.000131632
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - remote_file
+        - class
+        - zabbix_agent2
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.708237 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: "/var/lib/apt/zabbix-release_latest+ubuntu18.04_all.deb"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_agent2
+        - "Remote_file[/var/lib/apt/zabbix-release_latest+ubuntu18.04_all.deb]"
+        - "File[/var/lib/apt/zabbix-release_latest+ubuntu18.04_all.deb]"
+    Exec[instala_salida_automatica]: !ruby/object:Puppet::Resource::Status
+      resource: Exec[instala_salida_automatica]
+      file: /etc/puppet/modules/allinone/manifests/boton_cerrar_sesion.pp
+      line: 35
+      evaluation_time: 0.003465938
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - instala_salida_automatica
+        - class
+        - "allinone::boton_cerrar_sesion"
+        - allinone
+        - boton_cerrar_sesion
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.708530 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: instala_salida_automatica
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Boton_cerrar_sesion"
+        - Exec[instala_salida_automatica]
+    Exec[cambia_icono_logout]: !ruby/object:Puppet::Resource::Status
+      resource: Exec[cambia_icono_logout]
+      file: /etc/puppet/modules/allinone/manifests/boton_cerrar_sesion.pp
+      line: 41
+      evaluation_time: 0.003357103
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - cambia_icono_logout
+        - class
+        - "allinone::boton_cerrar_sesion"
+        - allinone
+        - boton_cerrar_sesion
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.712231 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: cambia_icono_logout
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Boton_cerrar_sesion"
+        - Exec[cambia_icono_logout]
+    Exec[nuevo_icono_logout-dialog]: !ruby/object:Puppet::Resource::Status
+      resource: Exec[nuevo_icono_logout-dialog]
+      file: /etc/puppet/modules/allinone/manifests/boton_cerrar_sesion.pp
+      line: 46
+      evaluation_time: 0.003112953
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - nuevo_icono_logout-dialog
+        - class
+        - "allinone::boton_cerrar_sesion"
+        - allinone
+        - boton_cerrar_sesion
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.715777 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: nuevo_icono_logout-dialog
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Boton_cerrar_sesion"
+        - Exec[nuevo_icono_logout-dialog]
+    Package[libfann-dev]: !ruby/object:Puppet::Resource::Status
+      resource: Package[libfann-dev]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 214
+      evaluation_time: 0.058249503
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - libfann-dev
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.719376 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: libfann-dev
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Package[libfann-dev]
+    "Exec[/bin/sed -i '/debianlinex$/d' /root/.ssh/authorized_keys]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/sed -i '/debianlinex$/d' /root/.ssh/authorized_keys]"
+      file: /etc/puppet/modulesSec/administracion-claves/manifests/init.pp
+      line: 27
+      evaluation_time: 0.00363555
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - class
+        - administracion-claves
+        - xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.778066 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/sed -i '/debianlinex$/d' /root/.ssh/authorized_keys"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Administracion-claves
+        - "Exec[/bin/sed -i '/debianlinex$/d' /root/.ssh/authorized_keys]"
+    "Exec[/bin/echo 'cheese' >> /etc/pkgsync/mayhave]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'cheese' >> /etc/pkgsync/mayhave]"
+      file: /etc/puppet/manifests/classes/addmusthave.pp
+      line: 17
+      evaluation_time: 0.003243246
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - addmayhave
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.781888 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'cheese' >> /etc/pkgsync/mayhave"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - "Addmayhave[inserta cheese]"
+        - "Exec[/bin/echo 'cheese' >> /etc/pkgsync/mayhave]"
+    File[/etc/escuela2.0]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/escuela2.0]
+      file: /etc/puppet/modules/allinone/manifests/fichero_escuela.pp
+      line: 29
+      evaluation_time: 0.017220604
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "allinone::fichero_escuela"
+        - allinone
+        - fichero_escuela
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.785553 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/escuela2.0
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Fichero_escuela"
+        - File[/etc/escuela2.0]
+    Filebucket[puppet]: !ruby/object:Puppet::Resource::Status
+      resource: Filebucket[puppet]
+      file: 
+      line: 
+      evaluation_time: 3.3957e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - filebucket
+        - puppet
+      time: 2024-04-29 08:21:58.803001 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Filebucket
+      title: puppet
+      skipped: false
+      failed: false
+      containment_path: 
+        - Filebucket[puppet]
+    Cron[apagado-noche]: !ruby/object:Puppet::Resource::Status
+      resource: Cron[apagado-noche]
+      file: /etc/puppet/modules/allinone/manifests/apagado.pp
+      line: 38
+      evaluation_time: 0.000233203
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - cron
+        - apagado-noche
+        - class
+        - "allinone::apagado"
+        - allinone
+        - apagado
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.806046 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Cron
+      title: apagado-noche
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Apagado"
+        - Cron[apagado-noche]
+    Exec[regenera-grub]: !ruby/object:Puppet::Resource::Status
+      resource: Exec[regenera-grub]
+      file: /etc/puppet/modules/allinone/manifests/grub.pp
+      line: 42
+      evaluation_time: 6.22e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - regenera-grub
+        - class
+        - "allinone::grub"
+        - allinone
+        - grub
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.806427 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: regenera-grub
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Grub"
+        - Exec[regenera-grub]
+    "Exec[/usr/bin/wget  -O - http://linex.educarex.es/administracionsi/SasiPub.gpg | /usr/bin/apt-key add  -]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/usr/bin/wget  -O - http://linex.educarex.es/administracionsi/SasiPub.gpg | /usr/bin/apt-key add  -]"
+      file: /etc/puppet/modulesSec/administracion-claves/manifests/init.pp
+      line: 38
+      evaluation_time: 0.081355396
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - class
+        - administracion-claves
+        - xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.806660 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/usr/bin/wget  -O - http://linex.educarex.es/administracionsi/SasiPub.gpg | /usr/bin/apt-key add  -"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Administracion-claves
+        - "Exec[/usr/bin/wget  -O - http://linex.educarex.es/administracionsi/SasiPub.gpg | /usr/bin/apt-key add  -]"
+    Ssh_authorized_key[servidor]: !ruby/object:Puppet::Resource::Status
+      resource: Ssh_authorized_key[servidor]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 227
+      evaluation_time: 0.00020392
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - ssh_authorized_key
+        - servidor
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.888232 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Ssh_authorized_key
+      title: servidor
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Ssh_authorized_key[servidor]
+    Cron[apagado-mediodia]: !ruby/object:Puppet::Resource::Status
+      resource: Cron[apagado-mediodia]
+      file: /etc/puppet/modules/allinone/manifests/apagado.pp
+      line: 30
+      evaluation_time: 0.000121681
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - cron
+        - apagado-mediodia
+        - class
+        - "allinone::apagado"
+        - allinone
+        - apagado
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.888668 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Cron
+      title: apagado-mediodia
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Apagado"
+        - Cron[apagado-mediodia]
+    File[/var/cache]: !ruby/object:Puppet::Resource::Status
+      resource: File[/var/cache]
+      file: /etc/puppet/manifests/classes/preseed.pp
+      line: 1
+      evaluation_time: 6.9738e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+      time: 2024-04-29 08:21:58.889187 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /var/cache
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Main
+        - File[/var/cache]
+    File[/var/cache/local]: !ruby/object:Puppet::Resource::Status
+      resource: File[/var/cache/local]
+      file: /etc/puppet/manifests/classes/preseed.pp
+      line: 2
+      evaluation_time: 4.7901e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+      time: 2024-04-29 08:21:58.889419 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /var/cache/local
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Main
+        - File[/var/cache/local]
+    File[/var/cache/local/preseeding/]: !ruby/object:Puppet::Resource::Status
+      resource: File[/var/cache/local/preseeding/]
+      file: /etc/puppet/manifests/classes/preseed.pp
+      line: 3
+      evaluation_time: 5.1534e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+      time: 2024-04-29 08:21:58.889538 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /var/cache/local/preseeding/
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Main
+        - File[/var/cache/local/preseeding/]
+    File[/var/cache/MecaNet64_Linux.zip]: !ruby/object:Puppet::Resource::Status
+      resource: File[/var/cache/MecaNet64_Linux.zip]
+      file: /etc/puppet/manifests/classes/xubuntu1804/instala_mecanet.pp
+      line: 10
+      evaluation_time: 0.039236548
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - instala_mecanet
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.889753 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /var/cache/MecaNet64_Linux.zip
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Instala_mecanet
+        - File[/var/cache/MecaNet64_Linux.zip]
+    Exec[instala_mecanet]: !ruby/object:Puppet::Resource::Status
+      resource: Exec[instala_mecanet]
+      file: /etc/puppet/manifests/classes/xubuntu1804/instala_mecanet.pp
+      line: 17
+      evaluation_time: 0.010967955
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - instala_mecanet
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.929157 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: instala_mecanet
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Instala_mecanet
+        - Exec[instala_mecanet]
+    "Exec[Create folder]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[Create folder]"
+      file: /etc/puppet/modules/allinone/manifests/autofs.pp
+      line: 27
+      evaluation_time: 0.003010986
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - class
+        - "allinone::autofs"
+        - allinone
+        - autofs
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.940664 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "Create folder"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Autofs"
+        - "Exec[Create folder]"
+    File[/etc/nsswitch.conf]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/nsswitch.conf]
+      file: /etc/puppet/modules/allinone/manifests/ldap.pp
+      line: 41
+      evaluation_time: 0.032465469
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "allinone::ldap"
+        - allinone
+        - ldap
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.944169 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/nsswitch.conf
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Ldap"
+        - File[/etc/nsswitch.conf]
+    "Exec[retrieve_/var/lib/apt/zabbix-release_latest+ubuntu22.04_all.deb]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[retrieve_/var/lib/apt/zabbix-release_latest+ubuntu22.04_all.deb]"
+      file: /etc/puppet/modules/zabbix_agent2/manifests/utils.pp
+      line: 26
+      evaluation_time: 6.0608e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - remote_file
+        - class
+        - zabbix_agent2
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.977101 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "retrieve_/var/lib/apt/zabbix-release_latest+ubuntu22.04_all.deb"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_agent2
+        - "Remote_file[/var/lib/apt/zabbix-release_latest+ubuntu22.04_all.deb]"
+        - "Exec[retrieve_/var/lib/apt/zabbix-release_latest+ubuntu22.04_all.deb]"
+    "File[/var/lib/apt/zabbix-release_latest+ubuntu22.04_all.deb]": !ruby/object:Puppet::Resource::Status
+      resource: "File[/var/lib/apt/zabbix-release_latest+ubuntu22.04_all.deb]"
+      file: /etc/puppet/modules/zabbix_agent2/manifests/utils.pp
+      line: 31
+      evaluation_time: 7.5343e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - remote_file
+        - class
+        - zabbix_agent2
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:58.977308 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: "/var/lib/apt/zabbix-release_latest+ubuntu22.04_all.deb"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_agent2
+        - "Remote_file[/var/lib/apt/zabbix-release_latest+ubuntu22.04_all.deb]"
+        - "File[/var/lib/apt/zabbix-release_latest+ubuntu22.04_all.deb]"
+    Filebucket[principal]: !ruby/object:Puppet::Resource::Status
+      resource: Filebucket[principal]
+      file: /etc/puppet/manifests/site.pp
+      line: 53
+      evaluation_time: 3.023e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - filebucket
+        - principal
+        - class
+      time: 2024-04-29 08:21:58.977606 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Filebucket
+      title: principal
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Main
+        - Filebucket[principal]
+    Package[firefox-locale-es]: !ruby/object:Puppet::Resource::Status
+      resource: Package[firefox-locale-es]
+      file: /etc/puppet/modulesSec/xubuntu2204/manifests/paqueteria.pp
+      line: 42
+      evaluation_time: 0.064210769
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - firefox-locale-es
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:58.977802 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: firefox-locale-es
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - Package[firefox-locale-es]
+    Package[cheese]: !ruby/object:Puppet::Resource::Status
+      resource: Package[cheese]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 220
+      evaluation_time: 0.05860974
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - cheese
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.042272 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: cheese
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Package[cheese]
+    File[/usr/bin/ajustessesion]: !ruby/object:Puppet::Resource::Status
+      resource: File[/usr/bin/ajustessesion]
+      file: /etc/puppet/modules/ajustesnavegadores/manifests/init.pp
+      line: 7
+      evaluation_time: 0.020235198
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - ajustesnavegadores
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.101232 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /usr/bin/ajustessesion
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Ajustesnavegadores
+        - File[/usr/bin/ajustessesion]
+    "Exec[/bin/echo 'python3-fann2' >> /etc/pkgsync/mayhave]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'python3-fann2' >> /etc/pkgsync/mayhave]"
+      file: /etc/puppet/manifests/classes/addmusthave.pp
+      line: 17
+      evaluation_time: 0.003690561
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - addmayhave
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.121647 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'python3-fann2' >> /etc/pkgsync/mayhave"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - "Addmayhave[inserta python3-fann2]"
+        - "Exec[/bin/echo 'python3-fann2' >> /etc/pkgsync/mayhave]"
+    Schedule[weekly]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[weekly]
+      file: 
+      line: 
+      evaluation_time: 3.2696e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - schedule
+        - weekly
+      time: 2024-04-29 08:21:59.125745 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: weekly
+      skipped: false
+      failed: false
+      containment_path: 
+        - Schedule[weekly]
+    "Exec[/bin/echo 'Prompt=never' >> '/etc/update-manager/release-upgrades']": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'Prompt=never' >> '/etc/update-manager/release-upgrades']"
+      file: /etc/puppet/modules/allinone/manifests/utils.pp
+      line: 35
+      evaluation_time: 0.003520349
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - setconfigurationaio
+        - remove-ubuntu-upgrades-messages
+        - class
+        - "allinone::varios"
+        - allinone
+        - varios
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.126116 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'Prompt=never' >> '/etc/update-manager/release-upgrades'"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Varios"
+        - Setconfigurationaio[remove-ubuntu-upgrades-messages]
+        - "Exec[/bin/echo 'Prompt=never' >> '/etc/update-manager/release-upgrades']"
+    "Exec[/bin/sed -i 's/'Prompt' *=.*/'Prompt'='never'/g' '/etc/update-manager/release-upgrades']": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/sed -i 's/'Prompt' *=.*/'Prompt'='never'/g' '/etc/update-manager/release-upgrades']"
+      file: /etc/puppet/modules/allinone/manifests/utils.pp
+      line: 31
+      evaluation_time: 0.003268842
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - setconfigurationaio
+        - remove-ubuntu-upgrades-messages
+        - class
+        - "allinone::varios"
+        - allinone
+        - varios
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.129901 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/sed -i 's/'Prompt' *=.*/'Prompt'='never'/g' '/etc/update-manager/release-upgrades'"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Varios"
+        - Setconfigurationaio[remove-ubuntu-upgrades-messages]
+        - "Exec[/bin/sed -i 's/'Prompt' *=.*/'Prompt'='never'/g' '/etc/update-manager/release-upgrades']"
+    Package[linex-arduino]: !ruby/object:Puppet::Resource::Status
+      resource: Package[linex-arduino]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 202
+      evaluation_time: 0.059413364
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - linex-arduino
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.133650 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: linex-arduino
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Package[linex-arduino]
+    Exec[borra_root_cacheado]: !ruby/object:Puppet::Resource::Status
+      resource: Exec[borra_root_cacheado]
+      file: /etc/puppet/manifests/classes/comunes/cambia-root.pp
+      line: 16
+      evaluation_time: 0.003069377
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - borra_root_cacheado
+        - class
+        - cambia-root
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.193340 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: borra_root_cacheado
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Cambia-root
+        - Exec[borra_root_cacheado]
+    File[/etc/zabbix/run/interface_info.py]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/zabbix/run/interface_info.py]
+      file: /etc/puppet/modules/zabbix_apps/manifests/init.pp
+      line: 62
+      evaluation_time: 0.022433396
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - zabbix_apps
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.196948 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/zabbix/run/interface_info.py
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_apps
+        - File[/etc/zabbix/run/interface_info.py]
+    Exec[screensaver]: !ruby/object:Puppet::Resource::Status
+      resource: Exec[screensaver]
+      file: /etc/puppet/modules/allinone/manifests/varios.pp
+      line: 39
+      evaluation_time: 0.002832166
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - screensaver
+        - class
+        - "allinone::varios"
+        - allinone
+        - varios
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.219759 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: screensaver
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Varios"
+        - Exec[screensaver]
+    Package[librecad]: !ruby/object:Puppet::Resource::Status
+      resource: Package[librecad]
+      file: /etc/puppet/modules/especifica_xubuntu2204/manifests/init.pp
+      line: 203
+      evaluation_time: 0.059229195
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - librecad
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.223009 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: librecad
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - Package[librecad]
+    Schedule[puppet]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[puppet]
+      file: 
+      line: 
+      evaluation_time: 0.000135451
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - schedule
+        - puppet
+      time: 2024-04-29 08:21:59.282451 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: puppet
+      skipped: false
+      failed: false
+      containment_path: 
+        - Schedule[puppet]
+    Package[google-chrome-stable]: !ruby/object:Puppet::Resource::Status
+      resource: Package[google-chrome-stable]
+      file: /etc/puppet/modulesSec/xubuntu2204/manifests/paqueteria.pp
+      line: 29
+      evaluation_time: 0.068302527
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - package
+        - google-chrome-stable
+        - class
+        - "xubuntu2204::paqueteria"
+        - xubuntu2204
+        - paqueteria
+        - node
+        - default
+      time: 2024-04-29 08:21:59.282722 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Package
+      title: google-chrome-stable
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Xubuntu2204::Paqueteria"
+        - Package[google-chrome-stable]
+    "Exec[/bin/sed -i 's/'ServerActive'=.*/'ServerActive'='zabbix.santaeulalia'/g' '/etc/zabbix/zabbix_agent2.conf'; /usr/bin/systemctl restart zabbix-agent2]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/sed -i 's/'ServerActive'=.*/'ServerActive'='zabbix.santaeulalia'/g' '/etc/zabbix/zabbix_agent2.conf'; /usr/bin/systemctl restart zabbix-agent2]"
+      file: /etc/puppet/modules/zabbix_agent2/manifests/utils.pp
+      line: 43
+      evaluation_time: 0.003510751
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - set_configuration_zabbix_agent2
+        - set-zabbix-server-active
+        - class
+        - zabbix_agent2
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.351968 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/sed -i 's/'ServerActive'=.*/'ServerActive'='zabbix.santaeulalia'/g' '/etc/zabbix/zabbix_agent2.conf'; /usr/bin/systemctl restart zabbix-agent2"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Zabbix_agent2
+        - Set_configuration_zabbix_agent2[set-zabbix-server-active]
+        - "Exec[/bin/sed -i 's/'ServerActive'=.*/'ServerActive'='zabbix.santaeulalia'/g' '/etc/zabbix/zabbix_agent2.conf'; /usr/bin/systemctl restart zabbix-agent2]"
+    File[/etc/xdg/autostart/Resolucion.desktop]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/xdg/autostart/Resolucion.desktop]
+      file: /etc/puppet/modules/allinone/manifests/hdmi.pp
+      line: 30
+      evaluation_time: 0.021548057
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "allinone::hdmi"
+        - allinone
+        - hdmi
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.356593 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/xdg/autostart/Resolucion.desktop
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Hdmi"
+        - File[/etc/xdg/autostart/Resolucion.desktop]
+    File[/etc/udev/rules.d/95-hdmi-plug.rules]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/udev/rules.d/95-hdmi-plug.rules]
+      file: /etc/puppet/modules/allinone/manifests/hdmi.pp
+      line: 74
+      evaluation_time: 0.016650828
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "allinone::hdmi"
+        - allinone
+        - hdmi
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.378288 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/udev/rules.d/95-hdmi-plug.rules
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Hdmi"
+        - File[/etc/udev/rules.d/95-hdmi-plug.rules]
+    File[/usr/bin/hdmi_aio]: !ruby/object:Puppet::Resource::Status
+      resource: File[/usr/bin/hdmi_aio]
+      file: /etc/puppet/modules/allinone/manifests/hdmi.pp
+      line: 67
+      evaluation_time: 0.025262353
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "allinone::hdmi"
+        - allinone
+        - hdmi
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.395083 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /usr/bin/hdmi_aio
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Hdmi"
+        - File[/usr/bin/hdmi_aio]
+    File[/usr/bin/resolucion_aio]: !ruby/object:Puppet::Resource::Status
+      resource: File[/usr/bin/resolucion_aio]
+      file: /etc/puppet/modules/allinone/manifests/hdmi.pp
+      line: 37
+      evaluation_time: 0.021464789
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "allinone::hdmi"
+        - allinone
+        - hdmi
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.420460 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /usr/bin/resolucion_aio
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Hdmi"
+        - File[/usr/bin/resolucion_aio]
+    File[/usr/bin/audio_aio]: !ruby/object:Puppet::Resource::Status
+      resource: File[/usr/bin/audio_aio]
+      file: /etc/puppet/modules/allinone/manifests/hdmi.pp
+      line: 59
+      evaluation_time: 0.022766916
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "allinone::hdmi"
+        - allinone
+        - hdmi
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.442065 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /usr/bin/audio_aio
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Hdmi"
+        - File[/usr/bin/audio_aio]
+    File[/etc/lightdm/lightdm.conf.d/10-resolucion.conf]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/lightdm/lightdm.conf.d/10-resolucion.conf]
+      file: /etc/puppet/modules/allinone/manifests/hdmi.pp
+      line: 44
+      evaluation_time: 0.016300806
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "allinone::hdmi"
+        - allinone
+        - hdmi
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.464952 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/lightdm/lightdm.conf.d/10-resolucion.conf
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Hdmi"
+        - File[/etc/lightdm/lightdm.conf.d/10-resolucion.conf]
+    File[/etc/xdg/autostart/Audio.desktop]: !ruby/object:Puppet::Resource::Status
+      resource: File[/etc/xdg/autostart/Audio.desktop]
+      file: /etc/puppet/modules/allinone/manifests/hdmi.pp
+      line: 52
+      evaluation_time: 0.01571656
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - file
+        - class
+        - "allinone::hdmi"
+        - allinone
+        - hdmi
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.481367 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: File
+      title: /etc/xdg/autostart/Audio.desktop
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - "Allinone::Hdmi"
+        - File[/etc/xdg/autostart/Audio.desktop]
+    Exec[configura_x11vnc]: !ruby/object:Puppet::Resource::Status
+      resource: Exec[configura_x11vnc]
+      file: /etc/puppet/modules/instala-x11vnc/manifests/init.pp
+      line: 28
+      evaluation_time: 0.0045645
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - configura_x11vnc
+        - class
+        - instala-x11vnc
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.497368 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: configura_x11vnc
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Instala-x11vnc
+        - Exec[configura_x11vnc]
+    "Exec[/bin/echo 'ffmpeg' >> /etc/pkgsync/mayhave]": !ruby/object:Puppet::Resource::Status
+      resource: "Exec[/bin/echo 'ffmpeg' >> /etc/pkgsync/mayhave]"
+      file: /etc/puppet/manifests/classes/addmusthave.pp
+      line: 17
+      evaluation_time: 0.003455041
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - exec
+        - addmayhave
+        - class
+        - especifica_xubuntu2204
+        - node
+        - default
+      time: 2024-04-29 08:21:59.502362 +02:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Exec
+      title: "/bin/echo 'ffmpeg' >> /etc/pkgsync/mayhave"
+      skipped: false
+      failed: false
+      containment_path: 
+        - Stage[main]
+        - Especifica_xubuntu2204
+        - "Addmayhave[inserta ffmpeg]"
+        - "Exec[/bin/echo 'ffmpeg' >> /etc/pkgsync/mayhave]"
+  host: b6620e70-ae1a-11ee-8f79-175ea3815fd0
+  time: 2024-04-29 08:21:54.615153 +02:00
+  kind: apply
+  report_format: 4
+  puppet_version: "3.8.5"
+  configuration_version: 1714371426
+  transaction_uuid: "567fa731-c929-4602-b5a5-eba5bb2c6a0b"
+  environment: production
+  status: unchanged
