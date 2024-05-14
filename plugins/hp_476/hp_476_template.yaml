@@ -1,0 +1,211 @@
+zabbix_export:
+  version: '6.4'
+  template_groups:
+    - uuid: 60f1dce8720d41eab748470cd7d4746e
+      name: Printers
+    - uuid: 4a74474520fd414b8af436139f573d7e
+      name: Templates/IES
+  templates:
+    - uuid: 62099eeedd7c4a4d9997bfeb7a513abe
+      template: 'IES - Printer HP Officejet Pro X476dw'
+      name: 'IES - Printer HP Officejet Pro X476dw'
+      description: |
+        This template is designed by Manuel Mora Gordillo
+        * Version 2.0
+        * Date: 15 March 2017
+        * Author: Manuel Mora Gordillo
+        * Contact: manuel.mora.gordillo@gmail.com
+      groups:
+        - name: Printers
+        - name: Templates/IES
+      items:
+        - uuid: 0620ae637ca44b6fb99e2c99c36b5fe0
+          name: 'Black toner capacity'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.2.1.43.11.1.1.8.1.4
+          key: black.toner.capacity
+          delay: 1h
+          history: 365d
+          units: pages
+          tags:
+            - tag: Application
+              value: 'Printer Supplies'
+        - uuid: 3161d138157040d584e6ce0e6dcda370
+          name: 'Black toner level'
+          type: CALCULATED
+          key: black.toner.level
+          delay: 1h
+          history: 365d
+          units: '%'
+          params: '100*last(//black.toner.remaining)/last(//black.toner.capacity)'
+          tags:
+            - tag: Application
+              value: 'Printer Supplies'
+          triggers:
+            - uuid: dfc20922dffa438a9881789b55ae6dac
+              expression: 'last(/IES - Printer HP Officejet Pro X476dw/black.toner.level)<={$WARNING_PERCENTAGE}'
+              name: 'Black toner under {$WARNING_PERCENTAGE}%'
+              opdata: 'Current level {ITEM.LASTVALUE1}%'
+              priority: WARNING
+        - uuid: 40934b3233644cdf8903f895f9b38530
+          name: 'Black toner remaining'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.2.1.43.11.1.1.9.1.4
+          key: black.toner.remaining
+          delay: 1h
+          history: 365d
+          value_type: FLOAT
+          units: pages
+          tags:
+            - tag: Application
+              value: 'Printer Supplies'
+        - uuid: 10ce582e66c1429fb48e6e8502befe6d
+          name: 'Cyan toner capacity'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.2.1.43.11.1.1.8.1.2
+          key: cyan.toner.capacity
+          delay: 1h
+          history: 365d
+          units: pages
+          tags:
+            - tag: Application
+              value: 'Printer Supplies'
+        - uuid: 8bf1cf6ecb484f369922509a0462968a
+          name: 'Cyan toner level'
+          type: CALCULATED
+          key: cyan.toner.level
+          delay: 1h
+          history: 365d
+          units: '%'
+          params: '100*last(//cyan.toner.remaining)/last(//cyan.toner.capacity)'
+          tags:
+            - tag: Application
+              value: 'Printer Supplies'
+          triggers:
+            - uuid: 8172bf5c548f4dc3ac7a9e34d6bb6403
+              expression: 'last(/IES - Printer HP Officejet Pro X476dw/cyan.toner.level)<={$WARNING_PERCENTAGE}'
+              name: 'Cyan toner under {$WARNING_PERCENTAGE}%'
+              opdata: 'Current level {ITEM.LASTVALUE1}%'
+              priority: WARNING
+        - uuid: 6e87706097f247dc8eb680656e435d7d
+          name: 'Cyan toner remaining'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.2.1.43.11.1.1.9.1.2
+          key: cyan.toner.remaining
+          delay: 1h
+          history: 365d
+          value_type: FLOAT
+          units: pages
+          tags:
+            - tag: Application
+              value: 'Printer Supplies'
+        - uuid: f3e400eb599042239a589ea06cb029eb
+          name: 'Magenta toner capacity'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.2.1.43.11.1.1.8.1.3
+          key: magenta.toner.capacity
+          delay: 1h
+          history: 365d
+          units: pages
+          tags:
+            - tag: Application
+              value: 'Printer Supplies'
+        - uuid: 35ef456f63a14324972fa1cecbf672bb
+          name: 'Magenta toner level'
+          type: CALCULATED
+          key: magenta.toner.level
+          delay: 1h
+          history: 365d
+          units: '%'
+          params: '100*last(//magenta.toner.remaining)/last(//magenta.toner.capacity)'
+          tags:
+            - tag: Application
+              value: 'Printer Supplies'
+          triggers:
+            - uuid: ccd0bc2a12c04d978e807a118ae06dc6
+              expression: 'last(/IES - Printer HP Officejet Pro X476dw/magenta.toner.level)<={$WARNING_PERCENTAGE}'
+              name: 'Magenta toner under {$WARNING_PERCENTAGE}%'
+              opdata: 'Current level {ITEM.LASTVALUE1}%'
+              priority: WARNING
+        - uuid: b123745b165e466890e4094992d43119
+          name: 'Magenta toner remaining'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.2.1.43.11.1.1.9.1.3
+          key: magenta.toner.remaining
+          delay: 1h
+          history: 365d
+          value_type: FLOAT
+          units: pages
+          tags:
+            - tag: Application
+              value: 'Printer Supplies'
+        - uuid: 15d89f14566448bea491ea9b09cf2041
+          name: 'Yellow toner capacity'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.2.1.43.11.1.1.8.1.1
+          key: yellow.toner.capacity
+          delay: 1h
+          history: 365d
+          units: pages
+          tags:
+            - tag: Application
+              value: 'Printer Supplies'
+        - uuid: 313c1b182856430ebf2830b1779609bc
+          name: 'Yellow toner level'
+          type: CALCULATED
+          key: yellow.toner.level
+          delay: 1h
+          history: 365d
+          units: '%'
+          params: '100*last(//yellow.toner.remaining)/last(//yellow.toner.capacity)'
+          tags:
+            - tag: Application
+              value: 'Printer Supplies'
+          triggers:
+            - uuid: a647b5c23fc546269833de7d66b3beb8
+              expression: 'last(/IES - Printer HP Officejet Pro X476dw/yellow.toner.level)<={$WARNING_PERCENTAGE}'
+              name: 'Yellow toner under {$WARNING_PERCENTAGE}%'
+              opdata: 'Current level {ITEM.LASTVALUE1}%'
+              priority: WARNING
+        - uuid: 5ad8502cf50a42f685f8e0cbc5a56381
+          name: 'Yellow toner remaining'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.2.1.43.11.1.1.9.1.1
+          key: yellow.toner.remaining
+          delay: 1h
+          history: 365d
+          value_type: FLOAT
+          units: pages
+          tags:
+            - tag: Application
+              value: 'Printer Supplies'
+      macros:
+        - macro: '{$WARNING_PERCENTAGE}'
+          value: '10'
+  graphs:
+    - uuid: 4549bbade50c4efdb375644bd222a19a
+      name: 'Black level'
+      graph_items:
+        - color: '000000'
+          calc_fnc: ALL
+          item:
+            host: 'IES - Printer HP Officejet Pro X476dw'
+            key: black.toner.level
+        - sortorder: '1'
+          color: 0080FF
+          calc_fnc: ALL
+          item:
+            host: 'IES - Printer HP Officejet Pro X476dw'
+            key: cyan.toner.level
+        - sortorder: '2'
+          color: FFFF00
+          calc_fnc: ALL
+          item:
+            host: 'IES - Printer HP Officejet Pro X476dw'
+            key: yellow.toner.level
+        - sortorder: '3'
+          color: BF00FF
+          calc_fnc: ALL
+          item:
+            host: 'IES - Printer HP Officejet Pro X476dw'
+            key: magenta.toner.level
