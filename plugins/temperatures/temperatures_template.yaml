@@ -1,0 +1,138 @@
+zabbix_export:
+  version: '6.4'
+  template_groups:
+    - uuid: 4a74474520fd414b8af436139f573d7e
+      name: Templates/IES
+  templates:
+    - uuid: 5a7814f01f1c47b592cd0b000c31651c
+      template: 'IES - Temperatures'
+      name: 'IES - Temperatures'
+      description: |
+        Created for computers of Secondary High Schools of Extremadura
+        
+        * Version 1.0
+        * Date: 01/09/2023
+        * Author: Manuel Mora Gordillo
+        * Contact: manuel.mora.gordillo@gmail.com
+      groups:
+        - name: Templates/IES
+      items:
+        - uuid: 23a0819f820e4aa3a9c47d8d46a32d3b
+          name: Temperatures
+          key: computer.temperatures
+          delay: 30m
+          history: 1w
+          trends: '0'
+          value_type: TEXT
+        - uuid: 0b88fab75405410f8e1ec481ef04a0da
+          name: 'Temperature Core 0'
+          type: DEPENDENT
+          key: computer.temperatures.core0
+          delay: '0'
+          history: 1w
+          value_type: FLOAT
+          units: º
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - '$.["coretemp - Core 0"]'
+          master_item:
+            key: computer.temperatures
+          triggers:
+            - uuid: 474425e296fd479c877b776bb2fd0312
+              expression: 'avg(/IES - Temperatures/computer.temperatures.core0,10m)>75'
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: 'avg(/IES - Temperatures/computer.temperatures.core0,10m)<60'
+              name: 'Temperature Core 0 TOO HIGH'
+              priority: HIGH
+        - uuid: 6361710945f14ef798f38ef33b26adac
+          name: 'Temperature Core 1'
+          type: DEPENDENT
+          key: computer.temperatures.core1
+          delay: '0'
+          history: 1w
+          value_type: FLOAT
+          units: º
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - '$.["coretemp - Core 1"]'
+          master_item:
+            key: computer.temperatures
+          triggers:
+            - uuid: 50f585740e324e258bd2cf61476fd4f2
+              expression: 'avg(/IES - Temperatures/computer.temperatures.core1,10m)>75'
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: 'avg(/IES - Temperatures/computer.temperatures.core1,10m)<60'
+              name: 'Temperature Core 1 TOO HIGH'
+              priority: HIGH
+        - uuid: cb3864023dc34e08a5ef0e3ff1f8c419
+          name: 'Temperature Core 2'
+          type: DEPENDENT
+          key: computer.temperatures.core2
+          delay: '0'
+          history: 1w
+          value_type: FLOAT
+          units: º
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - '$.["coretemp - Core 2"]'
+          master_item:
+            key: computer.temperatures
+          triggers:
+            - uuid: 492f69f9129940f3b972839ef321cdc3
+              expression: 'avg(/IES - Temperatures/computer.temperatures.core2,10m)>75'
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: 'avg(/IES - Temperatures/computer.temperatures.core2,10m)<60'
+              name: 'Temperature Core 2 TOO HIGH'
+              priority: HIGH
+        - uuid: 122f02e64fc04119ab64f855b073b7ee
+          name: 'Temperature Core 3'
+          type: DEPENDENT
+          key: computer.temperatures.core3
+          delay: '0'
+          history: 1w
+          value_type: FLOAT
+          units: º
+          preprocessing:
+            - type: JSONPATH
+              parameters:
+                - '$.["coretemp - Core 3"]'
+          master_item:
+            key: computer.temperatures
+          triggers:
+            - uuid: 2f3b2c43f7f048dd9d368873e1639a83
+              expression: 'avg(/IES - Temperatures/computer.temperatures.core3,10m)>75'
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: 'avg(/IES - Temperatures/computer.temperatures.core3,10m)<60'
+              name: 'Temperature Core 3 TOO HIGH'
+              priority: HIGH
+  graphs:
+    - uuid: 412f61517124402b81b23a62b8e13b31
+      name: 'Cores temperatures'
+      show_triggers: 'NO'
+      graph_items:
+        - color: BF00FF
+          calc_fnc: MAX
+          item:
+            host: 'IES - Temperatures'
+            key: computer.temperatures.core0
+        - sortorder: '1'
+          color: 0080FF
+          calc_fnc: MAX
+          item:
+            host: 'IES - Temperatures'
+            key: computer.temperatures.core1
+        - sortorder: '2'
+          color: F63100
+          calc_fnc: MAX
+          item:
+            host: 'IES - Temperatures'
+            key: computer.temperatures.core2
+        - sortorder: '3'
+          color: FFBF00
+          calc_fnc: MAX
+          item:
+            host: 'IES - Temperatures'
+            key: computer.temperatures.core3
