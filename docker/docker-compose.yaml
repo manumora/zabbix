@@ -18,11 +18,9 @@
 # 
 #############################################################################
 
-version: '3.5'
-
 services:
   zabbix-server:
-    image: zabbix/zabbix-server-pgsql:ubuntu-6.4-latest
+    image: zabbix/zabbix-server-pgsql:7.4-ubuntu-latest
     container_name: zabbix-server
     ports:
       - "10051:10051"
@@ -49,7 +47,7 @@ services:
     restart: always
 
   zabbix-web:
-    image: zabbix/zabbix-web-nginx-pgsql:ubuntu-6.4-latest
+    image: zabbix/zabbix-web-nginx-pgsql:7.4-ubuntu-latest
     container_name: zabbix-web
     ports:
       - "80:8080"
@@ -72,7 +70,7 @@ services:
     restart: always
 
   postgres-server:
-    image: postgres:15-alpine
+    image: postgres:15.19-trixie
     container_name: postgres-server
     volumes:
       - /docker/postgresql/data:/var/lib/postgresql/data:rw
