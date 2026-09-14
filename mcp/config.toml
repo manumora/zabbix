@@ -1,0 +1,71 @@
+#
+# Servidor MCP de Zabbix — configuracion para el curso
+#
+# Toda la configuracion del servidor vive en este fichero. El docker-compose.yaml
+# no necesita ninguna variable de entorno: la imagen arranca con
+#   CMD ["--config", "/etc/zabbix-mcp/config.toml"]
+#
+# Referencia completa de opciones:
+#   https://github.com/initMAX/zabbix-mcp-server/blob/main/config.example.toml
+#
+
+[server]
+
+# Transporte MCP: "http" (recomendado), "sse" o "stdio".
+transport = "http"
+
+# Interfaz de escucha DENTRO del contenedor. Debe ser 0.0.0.0 para que el
+# puerto publicado por Docker llegue al proceso.
+host = "0.0.0.0"
+
+# Puerto del servidor MCP. Tiene que coincidir con el de "ports:" del compose.
+port = 8086
+
+log_level = "info"
+log_file  = "/var/log/zabbix-mcp/server.log"
+
+# Token que los clientes MCP deben enviar en la cabecera:
+#   Authorization: Bearer <token>
+# Se puede escribir literal (asi) o como "${MCP_AUTH_TOKEN}" si se prefiere
+# sacarlo a una variable de entorno.
+# Token generado para el curso: no reutilices secretos de produccion aqui.
+auth_token = "zmcp_c6d546f290bd2fd13ba7a1a850bb23a3fbc82ad54891a66b4f640fc042128f77"
+
+# Peticiones por minuto permitidas por cliente.
+rate_limit = 300
+
+# Respuestas compactas: menos tokens consumidos por el modelo.
+compact_output = true
+
+# Sin tls_cert_file / tls_key_file el servidor habla HTTP plano.
+# Para activar HTTPS bastaria con descomentar estas dos lineas:
+# tls_cert_file = "/etc/zabbix-mcp/tls/server.crt"
+# tls_key_file  = "/etc/zabbix-mcp/tls/server.key"
+
+
+[admin]
+
+# Portal web de administracion. Comparte interfaz y TLS con [server];
+# solo el puerto es independiente.
+enabled = true
+port    = 9090
+
+
+# Servidor Zabbix a monitorizar. El nombre tras el punto ("curso") es una
+# etiqueta libre: se pueden declarar varios bloques [zabbix.<nombre>].
+[zabbix.curso]
+
+# DNS interno de Docker: "zabbix-web" es el container_name del frontend,
+# alcanzable porque ambos contenedores comparten la red docker_zabbix-network.
+url = "http://zabbix-web:8080"
+
+# Token de API de Zabbix. Se genera en la interfaz web:
+#   Users -> API tokens -> Create API token
+api_token = "PON_AQUI_TU_TOKEN_DE_API_DE_ZABBIX"
+
+# true = solo lectura. Ponlo a false para permitir crear/modificar/borrar.
+read_only = true
+
+# Verificacion del certificado TLS de Zabbix. Irrelevante aqui porque la
+# URL es http://, pero conviene dejarlo a true por defecto.
+verify_ssl = true
