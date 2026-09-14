@@ -42,6 +42,7 @@ compact_output = true
 # tls_cert_file = "/etc/zabbix-mcp/tls/server.crt"
 # tls_key_file  = "/etc/zabbix-mcp/tls/server.key"
 
+public_url = "https://IP_DEL_SERVIDOR_MCP:8086"
 
 [admin]
 
@@ -57,7 +58,7 @@ port    = 9090
 
 # DNS interno de Docker: "zabbix-web" es el container_name del frontend,
 # alcanzable porque ambos contenedores comparten la red docker_zabbix-network.
-url = "http://zabbix-web:8080"
+url = "http://zabbix-web:8080/api_jsonrpc.php"
 
 # Token de API de Zabbix. Se genera en la interfaz web:
 #   Users -> API tokens -> Create API token

@@ -1,7 +1,7 @@
 ##############################################################################
 # Module:      Zabbix Docker Compose
-# Date:        15-Dec-2023.
-# Copyright:   2023 - Manuel Mora Gordillo <manuel.mora.gordillo @nospam@ gmail.com>
+# Date:        15-Sep-2026
+# Copyright:   2026 - Manuel Mora Gordillo <manuel.mora.gordillo @nospam@ gmail.com>
 #
 # This file is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -65,6 +65,36 @@ services:
     depends_on:
       - postgres-server
       - zabbix-server
+    networks:
+      - zabbix-network
+    restart: always
+
+  zabbix-mcp-server:
+    image: manumora/zabbix-mcp-server:latest
+    container_name: zabbix-mcp-server
+    # La imagen corre como usuario no-root. Le damos el UID:GID del host
+    # para que pueda escribir en los bind mounts y en config.toml.
+    user: "1000:1000"
+    ports:
+      - "8086:8086"   # servidor MCP    -> http://localhost:8086/mcp
+      - "9090:9090"   # portal de admin -> http://localhost:9090/
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      # Lectura-escritura: el portal de administracion reescribe este fichero,
+      # y en el primer arranque se anade el usuario admin generado.
+      - /docker/mcp/config.toml:/etc/zabbix-mcp/config.toml:rw
+      - /docker/mcp/assets:/etc/zabbix-mcp/assets:rw
+      - /docker/mcp/templates:/etc/zabbix-mcp/templates:rw
+      - /docker/mcp/logs:/var/log/zabbix-mcp:rw
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8086/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    depends_on:
+      - zabbix-web
     networks:
       - zabbix-network
     restart: always
