@@ -54,7 +54,7 @@ port    = 9090
 
 # Servidor Zabbix a monitorizar. El nombre tras el punto ("curso") es una
 # etiqueta libre: se pueden declarar varios bloques [zabbix.<nombre>].
-[zabbix]
+[zabbix.curso]
 
 # DNS interno de Docker: "zabbix-web" es el container_name del frontend,
 # alcanzable porque ambos contenedores comparten la red docker_zabbix-network.
