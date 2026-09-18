@@ -21,24 +21,24 @@
 class zabbix_agent2 {
     
     zabbix_agent2::remote_file{"/var/lib/apt/zabbix-release_latest+ubuntu22.04_all.deb":
-        remote_location => "https://repo.zabbix.com/zabbix/6.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest+ubuntu22.04_all.deb",
+        remote_location => "https://repo.zabbix.com/zabbix/7.4/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.4+ubuntu22.04_all.deb",
         onlyif => "facter sistema | grep -q 'ubuntu2204'",
     }
 
     zabbix_agent2::remote_file{"/var/lib/apt/zabbix-release_latest+ubuntu18.04_all.deb":
-        remote_location => "https://repo.zabbix.com/zabbix/6.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest+ubuntu18.04_all.deb",
+        remote_location => "https://repo.zabbix.com/zabbix/7.4/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.4+ubuntu18.04_all.deb",
         onlyif => "facter sistema | grep -q 'ubuntu1804'",
     }
 
     exec { "instalar_zabbix_release_2204":
-        command => "dpkg -i /var/lib/apt/zabbix-release_latest+ubuntu22.04_all.deb ; apt update ;",
+        command => "dpkg -i /var/lib/apt/zabbix-release_latest_7.4+ubuntu22.04_all.deb ; apt update ;",
         path => ['/usr/bin', '/bin', '/usr/sbin', '/sbin'],
         unless => "dpkg -l | grep zabbix-release | grep ^ii",
         onlyif => "facter sistema | grep -q 'ubuntu2204'"
     }
 
     exec { "instalar_zabbix_release_1804":
-        command => "dpkg -i /var/lib/apt/zabbix-release_latest+ubuntu18.04_all.deb ; apt update ;",
+        command => "dpkg -i /var/lib/apt/zabbix-release_latest_7.4+ubuntu18.04_all.deb ; apt update ;",
         path => ['/usr/bin', '/bin', '/usr/sbin', '/sbin'],
         unless => "dpkg -l | grep zabbix-release | grep ^ii",
         onlyif => "facter sistema | grep -q 'ubuntu1804'"
