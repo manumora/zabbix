@@ -1,15 +1,17 @@
 #!/bin/bash
-# cert.sh - Días restantes hasta la caducidad de un certificado TLS
-# Uso: cert.sh <host> [puerto]
+# cert_dias.sh - Días restantes hasta la caducidad de un certificado TLS
+# Uso: cert_dias.sh <host> [puerto]
+# Devuelve: días restantes (negativo si ya caducó), o -99999 si no se pudo comprobar
 # Ejemplo: cert.sh iessantaeulalia.educarex.es 443
 
 set -u
 
+ERROR=-99999
 HOST="${1:-}"
 PUERTO="${2:-443}"
 
 if [ -z "$HOST" ]; then
-    echo -1
+    echo $ERROR
     exit 0
 fi
 
@@ -20,14 +22,14 @@ FECHA_FIN=$(echo | timeout 10 openssl s_client \
     | cut -d= -f2)
 
 if [ -z "$FECHA_FIN" ]; then
-    echo -1
+    echo $ERROR
     exit 0
 fi
 
 EPOCH_FIN=$(date -d "$FECHA_FIN" +%s 2>/dev/null)
 
 if [ -z "$EPOCH_FIN" ]; then
-    echo -1
+    echo $ERROR
     exit 0
 fi
 
