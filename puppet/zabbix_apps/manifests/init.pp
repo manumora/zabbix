@@ -26,41 +26,35 @@ class zabbix_apps {
 
     ### Monitor puppet ###
 
-    file {"/var/lib/puppet/state":
-        ensure => "directory",
-        recurse => true,
-        mode   => "0644"
-    }
-
     file {"/etc/zabbix/zabbix_agent2.d/zabbix_check_puppetstate.conf":
         source => "puppet:///modules/zabbix_apps/zabbix_check_puppetstate.conf",
-        owner => root, group => root, mode => 644
+        owner => root, group => root, mode => '644'
     }
 
     file {"/etc/zabbix/run/zabbix_check_puppetstate":
         source => "puppet:///modules/zabbix_apps/zabbix_check_puppetstate",
-        owner => root, group => root, mode => 755,
+        owner => root, group => root, mode => '755',
         require => File["/etc/zabbix/run"]
     }
 
     ### Monitor network interface ###
 
     file {"/etc/zabbix/zabbix_agent2.d/interface_info.conf":
-        source => "puppet:///modules/install_zabbix_agent/interface_info.conf",
-        owner => root, group => root, mode => 644
+        source => "puppet:///modules/zabbix_apps/interface_info.conf",
+        owner => root, group => root, mode => '644'
     }
 
     file {"/etc/zabbix/run/interface_info.py":
-        source => "puppet:///modules/install_zabbix_agent/interface_info.py",
-        owner => root, group => root, mode => 755,
+        source => "puppet:///modules/zabbix_apps/interface_info.py",
+        owner => root, group => root, mode => '755',
         require => File["/etc/zabbix/run"]
     }
 
     ### Monitor logged user ###
 
     file {"/etc/zabbix/zabbix_agent2.d/user_logged.conf":
-        source => "puppet:///modules/install_zabbix_agent/user_logged.conf",
-        owner => root, group => root, mode => 644
+        source => "puppet:///modules/zabbix_apps/user_logged.conf",
+        owner => root, group => root, mode => '644'
     }
 
     ### Monitor temperatures ###
@@ -71,13 +65,13 @@ class zabbix_apps {
     }
 
     file {"/etc/zabbix/zabbix_agent2.d/temperatures.conf":
-        source => "puppet:///modules/install_zabbix_agent/temperatures.conf",
-        owner => root, group => root, mode => 644
+        source => "puppet:///modules/zabbix_apps/temperatures.conf",
+        owner => root, group => root, mode => '644'
     }
 
     file {"/etc/zabbix/run/temperatures.py":
-        source => "puppet:///modules/install_zabbix_agent/temperatures.py",
-        owner => root, group => root, mode => 755,
+        source => "puppet:///modules/zabbix_apps/temperatures.py",
+        owner => root, group => root, mode => '755',
         require => File["/etc/zabbix/run"]
     }
 }
