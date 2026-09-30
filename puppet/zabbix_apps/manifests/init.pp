@@ -74,4 +74,11 @@ class zabbix_apps {
         owner => root, group => root, mode => '755',
         require => File["/etc/zabbix/run"]
     }
+
+    ### Monitor HDMI ###
+
+    file {"/etc/zabbix/zabbix_agent2.d/hdmi.conf":
+        source => "puppet:///modules/zabbix_apps/hdmi.conf",
+        owner => root, group => root, mode => '644'
+    }
 }
