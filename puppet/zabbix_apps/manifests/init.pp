@@ -24,11 +24,19 @@ class zabbix_apps {
         ensure => "directory",
     }
 
+    # Reinicia el agente solo cuando cambia algún .conf de zabbix_agent2.d,
+    # para que cargue los UserParameter nuevos o modificados.
+    exec {"restart-zabbix-agent2":
+        command => "/bin/systemctl restart zabbix-agent2",
+        refreshonly => true
+    }
+
     ### Monitor puppet ###
 
     file {"/etc/zabbix/zabbix_agent2.d/zabbix_check_puppetstate.conf":
         source => "puppet:///modules/zabbix_apps/zabbix_check_puppetstate.conf",
-        owner => root, group => root, mode => '644'
+        owner => root, group => root, mode => '644',
+        notify => Exec["restart-zabbix-agent2"]
     }
 
     file {"/etc/zabbix/run/zabbix_check_puppetstate":
@@ -41,7 +49,8 @@ class zabbix_apps {
 
     file {"/etc/zabbix/zabbix_agent2.d/interface_info.conf":
         source => "puppet:///modules/zabbix_apps/interface_info.conf",
-        owner => root, group => root, mode => '644'
+        owner => root, group => root, mode => '644',
+        notify => Exec["restart-zabbix-agent2"]
     }
 
     file {"/etc/zabbix/run/interface_info.py":
@@ -54,7 +63,8 @@ class zabbix_apps {
 
     file {"/etc/zabbix/zabbix_agent2.d/user_logged.conf":
         source => "puppet:///modules/zabbix_apps/user_logged.conf",
-        owner => root, group => root, mode => '644'
+        owner => root, group => root, mode => '644',
+        notify => Exec["restart-zabbix-agent2"]
     }
 
     ### Monitor temperatures ###
@@ -66,7 +76,8 @@ class zabbix_apps {
 
     file {"/etc/zabbix/zabbix_agent2.d/temperatures.conf":
         source => "puppet:///modules/zabbix_apps/temperatures.conf",
-        owner => root, group => root, mode => '644'
+        owner => root, group => root, mode => '644',
+        notify => Exec["restart-zabbix-agent2"]
     }
 
     file {"/etc/zabbix/run/temperatures.py":
@@ -79,6 +90,7 @@ class zabbix_apps {
 
     file {"/etc/zabbix/zabbix_agent2.d/hdmi.conf":
         source => "puppet:///modules/zabbix_apps/hdmi.conf",
-        owner => root, group => root, mode => '644'
+        owner => root, group => root, mode => '644',
+        notify => Exec["restart-zabbix-agent2"]
     }
 }
