@@ -93,4 +93,15 @@ class zabbix_apps {
         owner => root, group => root, mode => '644',
         notify => Exec["restart-zabbix-agent2"]
     }
+
+    ### Monitor SMART ###
+
+    # El plugin SMART de zabbix_agent2 ejecuta "sudo -n smartctl" porque el agente
+    # corre como el usuario zabbix. Sin esta regla sudo pide contraseña y el plugin
+    # falla con "Cannot unmarshal JSON". Solo permite ejecutar smartctl.
+    file {"/etc/sudoers.d/zabbix_smartctl":
+        content => "zabbix ALL=(root) NOPASSWD: /usr/sbin/smartctl\n",
+        owner => root, group => root, mode => '440',
+        validate_cmd => "/usr/sbin/visudo -cf %"
+    }
 }
